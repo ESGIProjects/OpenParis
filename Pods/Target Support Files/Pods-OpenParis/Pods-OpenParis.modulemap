@@ -1,0 +1,6 @@
+framework module Pods_OpenParis {
+  umbrella header "Pods-OpenParis-umbrella.h"
+
+  export *
+  module * { export * }
+}

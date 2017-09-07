@@ -20,10 +20,6 @@ class MainViewController: UIViewController {
             performSegue(withIdentifier: "SignUp", sender: self)
         }
     }
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        <#code#>
-//    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
