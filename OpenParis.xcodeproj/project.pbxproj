@@ -11,6 +11,8 @@
 		AE17FEA11F603943003F9727 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE17FEA01F603943003F9727 /* SignUpViewController.swift */; };
 		AE17FEA31F60396C003F9727 /* AddSpotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE17FEA21F60396C003F9727 /* AddSpotViewController.swift */; };
 		AE17FEA51F6039DC003F9727 /* FiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE17FEA41F6039DC003F9727 /* FiltersViewController.swift */; };
+		AE9D0C5D1F61890100A8D14B /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9D0C5C1F61890100A8D14B /* ListViewController.swift */; };
+		AE9D0C5F1F618B0500A8D14B /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9D0C5E1F618B0500A8D14B /* CustomCell.swift */; };
 		AEFB971E1F5FFF030013F30A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFB971D1F5FFF030013F30A /* AppDelegate.swift */; };
 		AEFB97201F5FFF030013F30A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFB971F1F5FFF030013F30A /* MainViewController.swift */; };
 		AEFB97231F5FFF030013F30A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEFB97211F5FFF030013F30A /* Main.storyboard */; };
@@ -26,6 +28,8 @@
 		AE17FEA01F603943003F9727 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		AE17FEA21F60396C003F9727 /* AddSpotViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSpotViewController.swift; sourceTree = "<group>"; };
 		AE17FEA41F6039DC003F9727 /* FiltersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersViewController.swift; sourceTree = "<group>"; };
+		AE9D0C5C1F61890100A8D14B /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		AE9D0C5E1F618B0500A8D14B /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		AEFB971A1F5FFF030013F30A /* OpenParis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenParis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEFB971D1F5FFF030013F30A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AEFB971F1F5FFF030013F30A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +77,7 @@
 				AE17FEA01F603943003F9727 /* SignUpViewController.swift */,
 				AE17FEA21F60396C003F9727 /* AddSpotViewController.swift */,
 				AE17FEA41F6039DC003F9727 /* FiltersViewController.swift */,
+				AE9D0C5C1F61890100A8D14B /* ListViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -104,6 +109,7 @@
 				AEFB97241F5FFF030013F30A /* Assets.xcassets */,
 				AEFB97261F5FFF030013F30A /* LaunchScreen.storyboard */,
 				AEFB97291F5FFF030013F30A /* Info.plist */,
+				AE9D0C5E1F618B0500A8D14B /* CustomCell.swift */,
 			);
 			path = OpenParis;
 			sourceTree = "<group>";
@@ -246,6 +252,8 @@
 				AE17FE9F1F60392B003F9727 /* SignInViewController.swift in Sources */,
 				AE17FEA51F6039DC003F9727 /* FiltersViewController.swift in Sources */,
 				AE17FEA31F60396C003F9727 /* AddSpotViewController.swift in Sources */,
+				AE9D0C5F1F618B0500A8D14B /* CustomCell.swift in Sources */,
+				AE9D0C5D1F61890100A8D14B /* ListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

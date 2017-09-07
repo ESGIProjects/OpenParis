@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class FiltersViewController : UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
     
@@ -14,13 +16,26 @@ class FiltersViewController : UIViewController, UIPickerViewDelegate, UIPickerVi
     @IBOutlet weak var budgetMax: UITextField!
     @IBOutlet weak var duration: UIPickerView!
     @IBOutlet weak var neighborhood: UIPickerView!
+    @IBAction func search(_ sender: Any) {
+        print(prepareStatement(budgetMin.text!, budgetMax.text!, durationValues[duration.selectedRow(inComponent: 0)], neighborhoodValues[neighborhood.selectedRow(inComponent: 0)]))
+        Alamofire.request(prepareStatement(budgetMin.text!, budgetMax.text!, durationValues[duration.selectedRow(inComponent: 0)], neighborhoodValues[neighborhood.selectedRow(inComponent: 0)]), method: .get).validate().responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                print("JSON: \(json)")
+                self.performSegue(withIdentifier: "List", sender: self)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
     
     var durationValues: [String] = ["1","2","3","4","5","6","7+"]
     var neighborhoodValues: [String] = ["Reuilly","Batignolles-Monceau","Palais-Bourbon","Buttes-Chaumont","Opéra","Entrepôt","Gobelins","Vaugirard","Louvre","Luxembourg","Élysée","Temple","Ménilmontant","Panthéon","Passy","Observatoire","Popincourt","Bourse","Buttes-Montmartre","Hôtel-de-Ville"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
         duration.delegate = self
         duration.dataSource = self
         
@@ -31,6 +46,10 @@ class FiltersViewController : UIViewController, UIPickerViewDelegate, UIPickerVi
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -54,5 +73,9 @@ class FiltersViewController : UIViewController, UIPickerViewDelegate, UIPickerVi
         }
         return neighborhoodValues[row]
     }
-
+    
+    func prepareStatement(_ budgetMin: String, _ budgetMax: String, _ duration: String, _ neighborhood: String) -> String {
+        let statement = "http://172.20.10.2:8080/search?priceMin=" + budgetMin + "&priceMax=" + budgetMax + "&duration=" + duration + "&neighborhood=" + neighborhood
+        return statement
+    }
 }
