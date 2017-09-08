@@ -10,7 +10,7 @@
 		AE17FE9F1F60392B003F9727 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE17FE9E1F60392B003F9727 /* SignInViewController.swift */; };
 		AE17FEA11F603943003F9727 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE17FEA01F603943003F9727 /* SignUpViewController.swift */; };
 		AE17FEA31F60396C003F9727 /* AddSpotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE17FEA21F60396C003F9727 /* AddSpotViewController.swift */; };
-		AE9D0C5D1F61890100A8D14B /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9D0C5C1F61890100A8D14B /* ListViewController.swift */; };
+		AE9D0C5D1F61890100A8D14B /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9D0C5C1F61890100A8D14B /* ResultsViewController.swift */; };
 		AE9D0C5F1F618B0500A8D14B /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9D0C5E1F618B0500A8D14B /* CustomCell.swift */; };
 		AEFB971E1F5FFF030013F30A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFB971D1F5FFF030013F30A /* AppDelegate.swift */; };
 		AEFB97201F5FFF030013F30A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFB971F1F5FFF030013F30A /* MainViewController.swift */; };
@@ -18,6 +18,7 @@
 		AEFB97251F5FFF030013F30A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEFB97241F5FFF030013F30A /* Assets.xcassets */; };
 		AEFB97281F5FFF030013F30A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEFB97261F5FFF030013F30A /* LaunchScreen.storyboard */; };
 		B74DD051E737859136707D05 /* Pods_OpenParis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13418B8800B380DFAAE842F8 /* Pods_OpenParis.framework */; };
+		D7112A641F62B78E00CC4892 /* EntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7112A631F62B78E00CC4892 /* EntryCell.swift */; };
 		D72A4C7A1F629582006A7D90 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE17FEA41F6039DC003F9727 /* SearchViewController.swift */; };
 		D73344D71F629A5F00BF890E /* ChoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73344D61F629A5F00BF890E /* ChoiceViewController.swift */; };
 /* End PBXBuildFile section */
@@ -29,7 +30,7 @@
 		AE17FEA01F603943003F9727 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		AE17FEA21F60396C003F9727 /* AddSpotViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSpotViewController.swift; sourceTree = "<group>"; };
 		AE17FEA41F6039DC003F9727 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		AE9D0C5C1F61890100A8D14B /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		AE9D0C5C1F61890100A8D14B /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		AE9D0C5E1F618B0500A8D14B /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		AEFB971A1F5FFF030013F30A /* OpenParis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenParis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEFB971D1F5FFF030013F30A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -38,6 +39,7 @@
 		AEFB97241F5FFF030013F30A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AEFB97271F5FFF030013F30A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AEFB97291F5FFF030013F30A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D7112A631F62B78E00CC4892 /* EntryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryCell.swift; sourceTree = "<group>"; };
 		D73344D61F629A5F00BF890E /* ChoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceViewController.swift; sourceTree = "<group>"; };
 		D7B627BC6DA7E360742C9D52 /* Pods-OpenParis.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenParis.release.xcconfig"; path = "Pods/Target Support Files/Pods-OpenParis/Pods-OpenParis.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -79,7 +81,7 @@
 				AE17FEA01F603943003F9727 /* SignUpViewController.swift */,
 				AE17FEA21F60396C003F9727 /* AddSpotViewController.swift */,
 				AE17FEA41F6039DC003F9727 /* SearchViewController.swift */,
-				AE9D0C5C1F61890100A8D14B /* ListViewController.swift */,
+				AE9D0C5C1F61890100A8D14B /* ResultsViewController.swift */,
 				D73344D61F629A5F00BF890E /* ChoiceViewController.swift */,
 			);
 			name = Controllers;
@@ -113,6 +115,7 @@
 				AEFB97261F5FFF030013F30A /* LaunchScreen.storyboard */,
 				AEFB97291F5FFF030013F30A /* Info.plist */,
 				AE9D0C5E1F618B0500A8D14B /* CustomCell.swift */,
+				D7112A631F62B78E00CC4892 /* EntryCell.swift */,
 			);
 			path = OpenParis;
 			sourceTree = "<group>";
@@ -255,9 +258,10 @@
 				AEFB971E1F5FFF030013F30A /* AppDelegate.swift in Sources */,
 				AE17FEA11F603943003F9727 /* SignUpViewController.swift in Sources */,
 				AE17FE9F1F60392B003F9727 /* SignInViewController.swift in Sources */,
+				D7112A641F62B78E00CC4892 /* EntryCell.swift in Sources */,
 				AE17FEA31F60396C003F9727 /* AddSpotViewController.swift in Sources */,
 				AE9D0C5F1F618B0500A8D14B /* CustomCell.swift in Sources */,
-				AE9D0C5D1F61890100A8D14B /* ListViewController.swift in Sources */,
+				AE9D0C5D1F61890100A8D14B /* ResultsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

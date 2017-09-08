@@ -24,11 +24,11 @@ class SearchViewController : UITableViewController {
     var selectedAttractions = [Int]()
     var selectedNeighborhood: (id: Int, name: String)?
 	
+	var receivedJSON: JSON?
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 	}
-	
-	
 	
 	@IBAction func changePrice(_ sender: UISlider) {
 		let label: UILabel!
@@ -74,8 +74,8 @@ class SearchViewController : UITableViewController {
                 switch response.result {
                     
                 case .success(let value):
-                    let json = JSON(value)
-                    print("JSON: \(json)")
+                    self.receivedJSON = JSON(value)
+					print("JSON: \(String(describing: self.receivedJSON))")
                     self.performSegue(withIdentifier: "resultsSegue", sender: self)
                     
                 case .failure(let error):
@@ -97,7 +97,11 @@ class SearchViewController : UITableViewController {
         }
 		
 		if segue.identifier == "resultsSegue" {
+			guard let controller = segue.destination as? ResultsViewController,
+				let json = receivedJSON
+			else { return }
 			
+			controller.json = json
 		}
     }
 
