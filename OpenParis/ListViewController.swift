@@ -8,8 +8,7 @@
 
 import UIKit
 
-class ListViewController : UITableViewController{
-    
+class ResultsViewController : UIViewController {
     
     
 }

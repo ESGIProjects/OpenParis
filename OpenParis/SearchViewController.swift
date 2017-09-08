@@ -20,14 +20,15 @@ class SearchViewController : UITableViewController {
 	
 	var priceMin = 200
 	var priceMax = 500
+    var duration = 1
+    var selectedAttractions = [Int]()
+    var selectedNeighborhood: (id: Int, name: String)?
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 	}
 	
-	@IBAction func search(_ sender: UIButton) {
-		print("search tapped")
-	}
+	
 	
 	@IBAction func changePrice(_ sender: UISlider) {
 		let label: UILabel!
@@ -51,49 +52,45 @@ class SearchViewController : UITableViewController {
 		let value = Int(sender.value)
 		nightsLabel.text = (value == Int(sender.maximumValue)) ? "\(value)+ nights" : "\(value) nights"
 	}
-	
-	/*
-    @IBAction func oldsearch(_ sender: Any) {
-        
-        let statement = prepareStatement(budgetMin.text!, budgetMax.text!, durationValues[duration.selectedRow(inComponent: 0)], neighborhood.selectedRow(inComponent: 0) + 1)
-        
-        print(statement)
-        
-        Alamofire.request(statement, method: .get).validate().responseJSON { response in
-            switch response.result {
-            case .success(let value):
-                let json = JSON(value)
-                print("JSON: \(json)")
-                self.performSegue(withIdentifier: "List", sender: self)
-                
-            case .failure(let error):
-                print(error)
+    
+    @IBAction func unwindToSearch(_ segue: UIStoryboardSegue) {
+        if segue.source is ChoiceViewController {
+            let source = segue.source as! ChoiceViewController
+            
+            if source.mode == .neighborhood {
+                selectedNeighborhood = source.selectedNeighborhood!
+                neighborhoodLabel.text = selectedNeighborhood!.name
+            } else {
+                selectedAttractions = source.selectedAttractions
+                attractionsLabel.text = "\(selectedAttractions.count)"
+            }
+            
+        }
+    }
+    
+    @IBAction func search(_ sender: UIButton) {
+        if let url = url() {
+            Alamofire.request(url, method: .get).validate().responseJSON { response in
+                switch response.result {
+                    
+                case .success(let value):
+                    let json = JSON(value)
+                    print("JSON: \(json)")
+                    self.performSegue(withIdentifier: "resultsSegue", sender: self)
+                    
+                case .failure(let error):
+                    print(error)
+                }
             }
         }
-    }*/
-    
-    var neighborhoodValues: [Int:String] = [1 : "Batignolles-Monceau",2 : "Bourse", 3 : "Buttes-Chaumont", 4 : "Buttes-Montmartre", 5 : "Élysée", 6 : "Entrepôt", 7 : "Gobelins", 8 : "Hôtel-de-Ville", 9 : "Louvre", 10 : "Luxembourg", 11 : "Ménilmontant", 12 : "Observatoire", 13 : "Opéra", 14 : "Palais-Bourbon", 15 : "Panthéon", 16 : "Passy", 17 : "Popincourt", 18 : "Reuilly", 19 : "Temple", 20 : "Vaugirard"]
+    }
 	
-    
-	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		tableView.deselectRow(at: indexPath, animated: true)
-		
-		if indexPath.section == 2 {
-			if indexPath.row == 1 {
-				performSegue(withIdentifier: "choiceSegue", sender: Choice.neighborhood)
-			}
-			if indexPath.row == 2 {
-				performSegue(withIdentifier: "choiceSegue", sender: Choice.attractions)
-			}
-		}
-	}
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "choiceSegue" {
 			
 			guard let navigationController = segue.destination as? UINavigationController,
 				let controller = navigationController.childViewControllers.first as? ChoiceViewController,
-				let choice = sender as? Choice
+				let choice = sender as? ChoiceViewController.Choice
 			else { return }
 			
 			controller.mode = choice
@@ -103,16 +100,47 @@ class SearchViewController : UITableViewController {
 			
 		}
     }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
-    }
-	
-    func prepareStatement(_ budgetMin: String, _ budgetMax: String, _ duration: String, _ neighborhood: Int) -> String {
-        return "http://172.20.10.2:8080/search?priceMin=\(budgetMin)&priceMax=\(budgetMax)&duration=\(duration)&neighborhood=\(neighborhood)"
+
+    func url() -> String? {
+        let address = "http://172.20.10.2:8080"
+        let endpoint = "\(address)/psearch"
+        
+        if let neighborhood = selectedNeighborhood {
+            var parameters = [String: String]()
+            parameters["priceMin"] = "\(priceMin)"
+            parameters["priceMax"] = "\(priceMax)"
+            parameters["duration"] = "\(duration)"
+            parameters["neighborhood"] = "\(neighborhood.id)"
+            
+            let attractionStringArray = selectedAttractions.map { "\($0)" }
+            parameters["attractions"] = attractionStringArray.joined(separator: ",")
+            
+            var parametersString = ""
+            for (key, parameter) in parameters {
+                parametersString.append("&\(key)=\(parameter)")
+            }
+            parametersString.remove(at: parametersString.startIndex)
+            
+            
+            
+            return "\(endpoint)?\(parametersString)"
+        }
+        return nil
     }
 }
 
-enum Choice {
-	case neighborhood, attractions
+// MARK: - UITableViewDelegate
+extension SearchViewController {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        if indexPath.section == 2 {
+            if indexPath.row == 1 {
+                performSegue(withIdentifier: "choiceSegue", sender: ChoiceViewController.Choice.neighborhood)
+            }
+            if indexPath.row == 2 {
+                performSegue(withIdentifier: "choiceSegue", sender: ChoiceViewController.Choice.attractions)
+            }
+        }
+    }
 }
