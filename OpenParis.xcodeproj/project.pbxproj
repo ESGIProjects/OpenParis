@@ -10,7 +10,6 @@
 		AE17FE9F1F60392B003F9727 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE17FE9E1F60392B003F9727 /* SignInViewController.swift */; };
 		AE17FEA11F603943003F9727 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE17FEA01F603943003F9727 /* SignUpViewController.swift */; };
 		AE17FEA31F60396C003F9727 /* AddSpotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE17FEA21F60396C003F9727 /* AddSpotViewController.swift */; };
-		AE17FEA51F6039DC003F9727 /* FiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE17FEA41F6039DC003F9727 /* FiltersViewController.swift */; };
 		AE9D0C5D1F61890100A8D14B /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9D0C5C1F61890100A8D14B /* ListViewController.swift */; };
 		AE9D0C5F1F618B0500A8D14B /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9D0C5E1F618B0500A8D14B /* CustomCell.swift */; };
 		AEFB971E1F5FFF030013F30A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFB971D1F5FFF030013F30A /* AppDelegate.swift */; };
@@ -19,6 +18,8 @@
 		AEFB97251F5FFF030013F30A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEFB97241F5FFF030013F30A /* Assets.xcassets */; };
 		AEFB97281F5FFF030013F30A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEFB97261F5FFF030013F30A /* LaunchScreen.storyboard */; };
 		B74DD051E737859136707D05 /* Pods_OpenParis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13418B8800B380DFAAE842F8 /* Pods_OpenParis.framework */; };
+		D72A4C7A1F629582006A7D90 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE17FEA41F6039DC003F9727 /* SearchViewController.swift */; };
+		D73344D71F629A5F00BF890E /* ChoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73344D61F629A5F00BF890E /* ChoiceViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +28,7 @@
 		AE17FE9E1F60392B003F9727 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		AE17FEA01F603943003F9727 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		AE17FEA21F60396C003F9727 /* AddSpotViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSpotViewController.swift; sourceTree = "<group>"; };
-		AE17FEA41F6039DC003F9727 /* FiltersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersViewController.swift; sourceTree = "<group>"; };
+		AE17FEA41F6039DC003F9727 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		AE9D0C5C1F61890100A8D14B /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		AE9D0C5E1F618B0500A8D14B /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		AEFB971A1F5FFF030013F30A /* OpenParis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenParis.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -37,6 +38,7 @@
 		AEFB97241F5FFF030013F30A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AEFB97271F5FFF030013F30A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AEFB97291F5FFF030013F30A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D73344D61F629A5F00BF890E /* ChoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceViewController.swift; sourceTree = "<group>"; };
 		D7B627BC6DA7E360742C9D52 /* Pods-OpenParis.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenParis.release.xcconfig"; path = "Pods/Target Support Files/Pods-OpenParis/Pods-OpenParis.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -69,17 +71,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		AE17FE9D1F6038E2003F9727 /* Controller */ = {
+		AE17FE9D1F6038E2003F9727 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				AEFB971F1F5FFF030013F30A /* MainViewController.swift */,
 				AE17FE9E1F60392B003F9727 /* SignInViewController.swift */,
 				AE17FEA01F603943003F9727 /* SignUpViewController.swift */,
 				AE17FEA21F60396C003F9727 /* AddSpotViewController.swift */,
-				AE17FEA41F6039DC003F9727 /* FiltersViewController.swift */,
+				AE17FEA41F6039DC003F9727 /* SearchViewController.swift */,
 				AE9D0C5C1F61890100A8D14B /* ListViewController.swift */,
+				D73344D61F629A5F00BF890E /* ChoiceViewController.swift */,
 			);
-			name = Controller;
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 		AEFB97111F5FFF030013F30A = {
@@ -103,7 +106,7 @@
 		AEFB971C1F5FFF030013F30A /* OpenParis */ = {
 			isa = PBXGroup;
 			children = (
-				AE17FE9D1F6038E2003F9727 /* Controller */,
+				AE17FE9D1F6038E2003F9727 /* Controllers */,
 				AEFB971D1F5FFF030013F30A /* AppDelegate.swift */,
 				AEFB97211F5FFF030013F30A /* Main.storyboard */,
 				AEFB97241F5FFF030013F30A /* Assets.xcassets */,
@@ -149,7 +152,7 @@
 				TargetAttributes = {
 					AEFB97191F5FFF030013F30A = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = PG324D5455;
+						DevelopmentTeam = 5RUJTG3BGA;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -201,7 +204,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		74497DFFEB133EC0AC1657C7 /* [CP] Copy Pods Resources */ = {
@@ -246,11 +249,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D73344D71F629A5F00BF890E /* ChoiceViewController.swift in Sources */,
+				D72A4C7A1F629582006A7D90 /* SearchViewController.swift in Sources */,
 				AEFB97201F5FFF030013F30A /* MainViewController.swift in Sources */,
 				AEFB971E1F5FFF030013F30A /* AppDelegate.swift in Sources */,
 				AE17FEA11F603943003F9727 /* SignUpViewController.swift in Sources */,
 				AE17FE9F1F60392B003F9727 /* SignInViewController.swift in Sources */,
-				AE17FEA51F6039DC003F9727 /* FiltersViewController.swift in Sources */,
 				AE17FEA31F60396C003F9727 /* AddSpotViewController.swift in Sources */,
 				AE9D0C5F1F618B0500A8D14B /* CustomCell.swift in Sources */,
 				AE9D0C5D1F61890100A8D14B /* ListViewController.swift in Sources */,
@@ -375,10 +379,10 @@
 			baseConfigurationReference = 6783C6BD2BB685AD4E60F576 /* Pods-OpenParis.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = PG324D5455;
+				DEVELOPMENT_TEAM = 5RUJTG3BGA;
 				INFOPLIST_FILE = OpenParis/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.esgi.OpenParis;
+				PRODUCT_BUNDLE_IDENTIFIER = com.esgiprojects.OpenParis;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -389,10 +393,10 @@
 			baseConfigurationReference = D7B627BC6DA7E360742C9D52 /* Pods-OpenParis.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = PG324D5455;
+				DEVELOPMENT_TEAM = 5RUJTG3BGA;
 				INFOPLIST_FILE = OpenParis/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.esgi.OpenParis;
+				PRODUCT_BUNDLE_IDENTIFIER = com.esgiprojects.OpenParis;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
