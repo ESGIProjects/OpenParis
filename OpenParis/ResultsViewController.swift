@@ -14,11 +14,38 @@ class ResultsViewController : UIViewController {
 	
 	@IBOutlet var mapView: MKMapView!
 	@IBOutlet var tableView: UITableView!
+	@IBOutlet var mapViewExpandedHeightConstraint: NSLayoutConstraint!
+	@IBOutlet var mapViewCollapsedHeightConstraint: NSLayoutConstraint!
 	
 	var json: JSON!
+	var expanded = false
+	
+	func expandMap(_ sender: UIBarButtonItem) {
+		print("expandMap")
+		
+		if expanded {
+			sender.title = "Expand"
+			mapViewExpandedHeightConstraint.isActive = false
+			mapViewCollapsedHeightConstraint.isActive = true
+			//self.view.removeConstraint(mapViewExpandedHeightConstraint)
+			//self.view.addConstraint(mapViewCollapsedHeightConstraint)
+			view.layoutIfNeeded()
+		} else {
+			sender.title = "Collapse"
+			
+			mapViewCollapsedHeightConstraint.isActive = false
+			mapViewExpandedHeightConstraint.isActive = true
+			//self.view.removeConstraint(mapViewCollapsedHeightConstraint)
+			//self.view.addConstraint(mapViewExpandedHeightConstraint)
+			view.layoutIfNeeded()
+		}
+	}
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		
+		navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Expand", style: .plain, target: self, action: #selector(expandMap(_:)))
+		
 		let center = CLLocationCoordinate2D(latitude: json["array"][0]["latitude"].doubleValue, longitude: json["array"][0]["longitude"].doubleValue)
 		let span = MKCoordinateSpan(latitudeDelta: 0.027, longitudeDelta: 0.027)
 		var region = MKCoordinateRegion(center: center, span: span)
@@ -78,5 +105,11 @@ extension ResultsViewController : MKMapViewDelegate {
 			annotationView?.annotation = annotation
 		}
 		return annotationView
+	}
+}
+
+extension NSLayoutConstraint {
+	func constraintWithMultiplier(_ multiplier: CGFloat) -> NSLayoutConstraint {
+		return NSLayoutConstraint(item: self.firstItem, attribute: self.firstAttribute, relatedBy: self.relation, toItem: self.secondItem, attribute: self.secondAttribute, multiplier: multiplier, constant: self.constant)
 	}
 }

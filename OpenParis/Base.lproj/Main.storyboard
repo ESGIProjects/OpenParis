@@ -666,6 +666,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="pcx-Oe-TYf" firstAttribute="leading" secondItem="pES-cq-g1v" secondAttribute="leading" id="0Xq-XK-wP3"/>
+                            <constraint firstItem="jac-IC-pds" firstAttribute="height" secondItem="pES-cq-g1v" secondAttribute="height" id="1YV-9O-ZAt"/>
                             <constraint firstItem="pcx-Oe-TYf" firstAttribute="top" secondItem="jac-IC-pds" secondAttribute="bottom" id="9qd-J9-HNH"/>
                             <constraint firstItem="jac-IC-pds" firstAttribute="top" secondItem="DWK-Kw-f2f" secondAttribute="bottom" id="FlQ-VW-m9q"/>
                             <constraint firstItem="jac-IC-pds" firstAttribute="leading" secondItem="pES-cq-g1v" secondAttribute="leading" id="Q8E-fp-nIk"/>
@@ -674,9 +675,16 @@
                             <constraint firstItem="jac-IC-pds" firstAttribute="height" secondItem="pES-cq-g1v" secondAttribute="height" multiplier="0.3" id="pw4-Gk-LVO"/>
                             <constraint firstAttribute="trailing" secondItem="pcx-Oe-TYf" secondAttribute="trailing" id="yCD-bh-1V5"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="1YV-9O-ZAt"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="mapView" destination="jac-IC-pds" id="MxH-zz-66k"/>
+                        <outlet property="mapViewCollapsedHeightConstraint" destination="pw4-Gk-LVO" id="287-Qx-YTf"/>
+                        <outlet property="mapViewExpandedHeightConstraint" destination="1YV-9O-ZAt" id="fDa-PR-bQf"/>
                         <outlet property="tableView" destination="pcx-Oe-TYf" id="aZc-LH-fjU"/>
                     </connections>
                 </viewController>
