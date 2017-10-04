@@ -70,7 +70,7 @@ class ChoiceViewController: UITableViewController {
 		dismiss(animated: true)
 	}
     
-    func done(_ sender: UIBarButtonItem) {
+    @objc func done(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "unwindToSearch", sender: self)
     }
 }

@@ -20,7 +20,7 @@ class ResultsViewController : UIViewController {
 	var json: JSON!
 	var expanded = false
 	
-	func expandMap(_ sender: UIBarButtonItem) {
+	@objc func expandMap(_ sender: UIBarButtonItem) {
 		print("expandMap")
 		
 		if expanded {
@@ -110,6 +110,6 @@ extension ResultsViewController : MKMapViewDelegate {
 
 extension NSLayoutConstraint {
 	func constraintWithMultiplier(_ multiplier: CGFloat) -> NSLayoutConstraint {
-		return NSLayoutConstraint(item: self.firstItem, attribute: self.firstAttribute, relatedBy: self.relation, toItem: self.secondItem, attribute: self.secondAttribute, multiplier: multiplier, constant: self.constant)
+		return NSLayoutConstraint(item: self.firstItem!, attribute: self.firstAttribute, relatedBy: self.relation, toItem: self.secondItem, attribute: self.secondAttribute, multiplier: multiplier, constant: self.constant)
 	}
 }

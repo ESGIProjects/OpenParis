@@ -64,7 +64,8 @@ class SearchViewController : UITableViewController {
                 selectedAttractions = source.selectedAttractions
                 attractionsLabel.text = "\(selectedAttractions.count)"
             }
-            
+			
+			tableView.reloadData()            
         }
     }
     
