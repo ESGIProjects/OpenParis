@@ -16,13 +16,13 @@ class Logement {
 	var neighborhood: Int
 	var latitude: Double
 	var longitude: Double
-	var roomType: String
+	var roomType: RoomType
 	var price: Int
 	var minimumNights: Int
 	var totalReviews: Int
 	var places: [Place]
 	
-	init(id: Int, name: String, host: Int, neighborhood: Int, latitude: Double, longitude: Double, roomType: String, price: Int, minimumNights: Int, totalReviews: Int, places: [Place]?) {
+	init(id: Int, name: String, host: Int, neighborhood: Int, latitude: Double, longitude: Double, roomType: RoomType, price: Int, minimumNights: Int, totalReviews: Int, places: [Place]?) {
 		self.id = id
 		self.name = name
 		self.host = host
@@ -49,7 +49,7 @@ class Logement {
 		neighborhood = json["neighborhood"].intValue
 		latitude = json["latitude"].doubleValue
 		longitude = json["longitude"].doubleValue
-		roomType = json["roomType"].stringValue
+		roomType = RoomType(rawValue: json["roomType"].intValue) ?? .entireHome
 		price = json["price"].intValue
 		minimumNights = json["minNights"].intValue
 		totalReviews = json["nbReviews"].intValue
@@ -60,5 +60,9 @@ class Logement {
 			let place = Place(json: placeJSON)
 			places.append(place)
 		}
+	}
+	
+	enum RoomType: Int {
+		case entireHome = 0, privateRoom, sharedRoom
 	}
 }

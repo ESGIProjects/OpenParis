@@ -8,16 +8,15 @@
 
 import UIKit
 
-class EntryCell: UITableViewCell {
+class LogementCell: UITableViewCell {
 	
+	@IBOutlet var roomTypeImageView: UIImageView!
 	@IBOutlet var nameLabel: UILabel!
 	@IBOutlet var priceLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-		priceLabel.clipsToBounds = true
-		priceLabel.layer.cornerRadius = 10
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
