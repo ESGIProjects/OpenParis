@@ -21,26 +21,30 @@
 		D7112A641F62B78E00CC4892 /* EntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7112A631F62B78E00CC4892 /* EntryCell.swift */; };
 		D72A4C7A1F629582006A7D90 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE17FEA41F6039DC003F9727 /* SearchViewController.swift */; };
 		D73344D71F629A5F00BF890E /* ChoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73344D61F629A5F00BF890E /* ChoiceViewController.swift */; };
+		D7644C021F882381002AC8FA /* Logement.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7644C011F882381002AC8FA /* Logement.swift */; };
+		D7644C041F882581002AC8FA /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7644C031F882581002AC8FA /* Place.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		13418B8800B380DFAAE842F8 /* Pods_OpenParis.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OpenParis.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6783C6BD2BB685AD4E60F576 /* Pods-OpenParis.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenParis.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OpenParis/Pods-OpenParis.debug.xcconfig"; sourceTree = "<group>"; };
-		AE17FE9E1F60392B003F9727 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
-		AE17FEA01F603943003F9727 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		AE17FEA21F60396C003F9727 /* AddSpotViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSpotViewController.swift; sourceTree = "<group>"; };
-		AE17FEA41F6039DC003F9727 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		AE9D0C5C1F61890100A8D14B /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
-		AE9D0C5E1F618B0500A8D14B /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		AE17FE9E1F60392B003F9727 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignInViewController.swift; path = Controllers/SignInViewController.swift; sourceTree = "<group>"; };
+		AE17FEA01F603943003F9727 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = Controllers/SignUpViewController.swift; sourceTree = "<group>"; };
+		AE17FEA21F60396C003F9727 /* AddSpotViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddSpotViewController.swift; path = Controllers/AddSpotViewController.swift; sourceTree = "<group>"; };
+		AE17FEA41F6039DC003F9727 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchViewController.swift; path = Controllers/SearchViewController.swift; sourceTree = "<group>"; };
+		AE9D0C5C1F61890100A8D14B /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResultsViewController.swift; path = Controllers/ResultsViewController.swift; sourceTree = "<group>"; };
+		AE9D0C5E1F618B0500A8D14B /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomCell.swift; path = Views/CustomCell.swift; sourceTree = "<group>"; };
 		AEFB971A1F5FFF030013F30A /* OpenParis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenParis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEFB971D1F5FFF030013F30A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AEFB971F1F5FFF030013F30A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		AEFB971F1F5FFF030013F30A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = Controllers/MainViewController.swift; sourceTree = "<group>"; };
 		AEFB97221F5FFF030013F30A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AEFB97241F5FFF030013F30A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AEFB97271F5FFF030013F30A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AEFB97291F5FFF030013F30A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D7112A631F62B78E00CC4892 /* EntryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryCell.swift; sourceTree = "<group>"; };
-		D73344D61F629A5F00BF890E /* ChoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceViewController.swift; sourceTree = "<group>"; };
+		D7112A631F62B78E00CC4892 /* EntryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EntryCell.swift; path = Views/EntryCell.swift; sourceTree = "<group>"; };
+		D73344D61F629A5F00BF890E /* ChoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChoiceViewController.swift; path = Controllers/ChoiceViewController.swift; sourceTree = "<group>"; };
+		D7644C011F882381002AC8FA /* Logement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Logement.swift; path = Models/Logement.swift; sourceTree = "<group>"; };
+		D7644C031F882581002AC8FA /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Place.swift; path = Models/Place.swift; sourceTree = "<group>"; };
 		D7B627BC6DA7E360742C9D52 /* Pods-OpenParis.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenParis.release.xcconfig"; path = "Pods/Target Support Files/Pods-OpenParis/Pods-OpenParis.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,16 +112,42 @@
 		AEFB971C1F5FFF030013F30A /* OpenParis */ = {
 			isa = PBXGroup;
 			children = (
-				AE17FE9D1F6038E2003F9727 /* Controllers */,
 				AEFB971D1F5FFF030013F30A /* AppDelegate.swift */,
-				AEFB97211F5FFF030013F30A /* Main.storyboard */,
+				D7644C001F882299002AC8FA /* Models */,
+				D7644BFE1F881F6A002AC8FA /* Views */,
+				AE17FE9D1F6038E2003F9727 /* Controllers */,
+				D7644BFF1F881F93002AC8FA /* Storyboards */,
 				AEFB97241F5FFF030013F30A /* Assets.xcassets */,
-				AEFB97261F5FFF030013F30A /* LaunchScreen.storyboard */,
 				AEFB97291F5FFF030013F30A /* Info.plist */,
+			);
+			path = OpenParis;
+			sourceTree = "<group>";
+		};
+		D7644BFE1F881F6A002AC8FA /* Views */ = {
+			isa = PBXGroup;
+			children = (
 				AE9D0C5E1F618B0500A8D14B /* CustomCell.swift */,
 				D7112A631F62B78E00CC4892 /* EntryCell.swift */,
 			);
-			path = OpenParis;
+			name = Views;
+			sourceTree = "<group>";
+		};
+		D7644BFF1F881F93002AC8FA /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				AEFB97211F5FFF030013F30A /* Main.storyboard */,
+				AEFB97261F5FFF030013F30A /* LaunchScreen.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		D7644C001F882299002AC8FA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D7644C011F882381002AC8FA /* Logement.swift */,
+				D7644C031F882581002AC8FA /* Place.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,8 +286,10 @@
 				D73344D71F629A5F00BF890E /* ChoiceViewController.swift in Sources */,
 				D72A4C7A1F629582006A7D90 /* SearchViewController.swift in Sources */,
 				AEFB97201F5FFF030013F30A /* MainViewController.swift in Sources */,
+				D7644C041F882581002AC8FA /* Place.swift in Sources */,
 				AEFB971E1F5FFF030013F30A /* AppDelegate.swift in Sources */,
 				AE17FEA11F603943003F9727 /* SignUpViewController.swift in Sources */,
+				D7644C021F882381002AC8FA /* Logement.swift in Sources */,
 				AE17FE9F1F60392B003F9727 /* SignInViewController.swift in Sources */,
 				D7112A641F62B78E00CC4892 /* EntryCell.swift in Sources */,
 				AE17FEA31F60396C003F9727 /* AddSpotViewController.swift in Sources */,

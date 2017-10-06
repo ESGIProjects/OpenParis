@@ -17,7 +17,7 @@ class ResultsViewController : UIViewController {
 	@IBOutlet var mapViewExpandedHeightConstraint: NSLayoutConstraint!
 	@IBOutlet var mapViewCollapsedHeightConstraint: NSLayoutConstraint!
 	
-	var json: JSON!
+	var logements: [Logement]!
 	var expanded = false
 	
 	@objc func expandMap(_ sender: UIBarButtonItem) {
@@ -46,17 +46,17 @@ class ResultsViewController : UIViewController {
 		
 		navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Expand", style: .plain, target: self, action: #selector(expandMap(_:)))
 		
-		let center = CLLocationCoordinate2D(latitude: json["array"][0]["latitude"].doubleValue, longitude: json["array"][0]["longitude"].doubleValue)
+		let center = CLLocationCoordinate2D(latitude: logements[0].latitude, longitude: logements[0].longitude)
 		let span = MKCoordinateSpan(latitudeDelta: 0.027, longitudeDelta: 0.027)
 		var region = MKCoordinateRegion(center: center, span: span)
 		region = mapView.regionThatFits(region)
 		mapView.setRegion(region, animated: true)
 
-		for place in json["array"][0]["places"].arrayValue {
-			let coordinate = CLLocationCoordinate2D(latitude: place["latitude"].doubleValue, longitude: place["longitude"].doubleValue)
+		for logement in logements {
+			let coordinate = CLLocationCoordinate2D(latitude: logement.latitude, longitude: logement.longitude)
 			let annotation = MKPointAnnotation()
 			annotation.coordinate = coordinate
-			annotation.title = place["name"].stringValue
+			annotation.title = logement.name
 			mapView.addAnnotation(annotation)
 		}
 	}
@@ -68,7 +68,7 @@ extension ResultsViewController: UITableViewDataSource {
 	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return json["array"][0]["places"].arrayValue.count
+		return logements.count
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -76,8 +76,10 @@ extension ResultsViewController: UITableViewDataSource {
 			return UITableViewCell(style: .default, reuseIdentifier: "EntryCell")
 		}
 		
-		cell.nameLabel.text = json["array"][0]["places"][indexPath.row]["name"].stringValue
-		cell.priceLabel.text = "\(json["array"][0]["places"][indexPath.row]["zipCode"].intValue)"
+		let logement = logements[indexPath.row]
+		
+		cell.nameLabel.text = logement.name
+		cell.priceLabel.text = "\(logement.price) €"
 		
 		return cell
 	}

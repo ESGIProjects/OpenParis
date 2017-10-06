@@ -24,11 +24,35 @@ class SearchViewController : UITableViewController {
     var selectedAttractions = [Int]()
     var selectedNeighborhood: (id: Int, name: String)?
 	
-	var receivedJSON: JSON?
+	var retrievedLogements: [Logement]?
+	
+	// MARK: - UIViewController
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 	}
+	
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		if segue.identifier == "choiceSegue" {
+			
+			guard let navigationController = segue.destination as? UINavigationController,
+				let controller = navigationController.childViewControllers.first as? ChoiceViewController,
+				let choice = sender as? ChoiceViewController.Choice
+				else { return }
+			
+			controller.mode = choice
+		}
+		
+		if segue.identifier == "resultsSegue" {
+			guard let controller = segue.destination as? ResultsViewController,
+				let logements = retrievedLogements
+				else { return }
+			
+			controller.logements = logements
+		}
+	}
+	
+	// MARK: - IBActions
 	
 	@IBAction func changePrice(_ sender: UISlider) {
 		let label: UILabel!
@@ -71,12 +95,12 @@ class SearchViewController : UITableViewController {
     
     @IBAction func search(_ sender: UIButton) {
         if let url = url() {
+			print(url)
             Alamofire.request(url, method: .get).validate().responseJSON { response in
                 switch response.result {
                     
                 case .success(let value):
-                    self.receivedJSON = JSON(value)
-					print("JSON: \(String(describing: self.receivedJSON))")
+					self.retrievedLogements = self.convertJSON(JSON(value))
                     self.performSegue(withIdentifier: "resultsSegue", sender: self)
                     
                 case .failure(let error):
@@ -86,29 +110,28 @@ class SearchViewController : UITableViewController {
         }
     }
 	
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "choiceSegue" {
-			
-			guard let navigationController = segue.destination as? UINavigationController,
-				let controller = navigationController.childViewControllers.first as? ChoiceViewController,
-				let choice = sender as? ChoiceViewController.Choice
-			else { return }
-			
-			controller.mode = choice
-        }
+	func convertJSON(_ json: JSON) -> [Logement]? {
 		
-		if segue.identifier == "resultsSegue" {
-			guard let controller = segue.destination as? ResultsViewController,
-				let json = receivedJSON
-			else { return }
-			
-			controller.json = json
+		if json["count"].intValue <= 0 {
+			return nil
 		}
-    }
+		
+		var logements = [Logement]()
+		
+		let array = json["array"].arrayValue
+		for jsonLogement in array {
+			let logement = Logement(json: jsonLogement)
+			logements.append(logement)
+		}
+		
+		return logements
+	}
+	
+	// MARK: - Helpers
 
     func url() -> String? {
-        let address = "http://172.20.10.2:8080"
-        let endpoint = "\(address)/psearch"
+        let address = "http://localhost:8080"
+        let endpoint = "\(address)/search"
         
         if let neighborhood = selectedNeighborhood {
             var parameters = [String: String]()
@@ -125,9 +148,7 @@ class SearchViewController : UITableViewController {
                 parametersString.append("&\(key)=\(parameter)")
             }
             parametersString.remove(at: parametersString.startIndex)
-            
-            
-            
+			
             return "\(endpoint)?\(parametersString)"
         }
         return nil

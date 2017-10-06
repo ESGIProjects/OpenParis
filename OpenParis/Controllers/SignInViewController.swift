@@ -12,6 +12,7 @@ class SignInViewController : UIViewController{
     
     @IBOutlet weak var mail: UITextField!
     @IBOutlet weak var password: UITextField!
+	
     @IBAction func signIn(_ sender: Any) {
         if(mail.text == "" && password.text == ""){
             let alert = UIAlertController(title: "Missing parameters", message: "There is an empty field", preferredStyle: .alert)
