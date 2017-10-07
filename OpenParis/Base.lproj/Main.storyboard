@@ -82,16 +82,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <slider opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="200" minValue="0.0" maxValue="1000" translatesAutoresizingMaskIntoConstraints="NO" id="2ZC-sS-xw5">
-                                                    <rect key="frame" x="126" y="8" width="188" height="28.5"/>
+                                                    <rect key="frame" x="100" y="8" width="214" height="28.5"/>
                                                     <connections>
                                                         <action selector="changePrice:" destination="z7o-L0-moJ" eventType="valueChanged" id="w7M-g7-2V1"/>
                                                     </connections>
                                                 </slider>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="200 €" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GFb-HR-i2o">
-                                                    <rect key="frame" x="18" y="8" width="70" height="27"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="70" id="53H-9H-utw"/>
-                                                    </constraints>
+                                                    <rect key="frame" x="18" y="8" width="84" height="27"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -103,7 +100,8 @@
                                                 <constraint firstAttribute="bottomMargin" secondItem="GFb-HR-i2o" secondAttribute="bottom" id="O9T-AA-W1o"/>
                                                 <constraint firstItem="2ZC-sS-xw5" firstAttribute="top" secondItem="Ych-qt-nHs" secondAttribute="topMargin" id="Tjc-Cy-X1l"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="2ZC-sS-xw5" secondAttribute="bottom" id="XNi-iA-BmW"/>
-                                                <constraint firstItem="2ZC-sS-xw5" firstAttribute="leading" secondItem="GFb-HR-i2o" secondAttribute="trailing" constant="40" id="jwp-Mq-69K"/>
+                                                <constraint firstItem="GFb-HR-i2o" firstAttribute="width" secondItem="2ZC-sS-xw5" secondAttribute="width" multiplier="0.4" id="efm-bd-oy2"/>
+                                                <constraint firstItem="2ZC-sS-xw5" firstAttribute="leading" secondItem="GFb-HR-i2o" secondAttribute="trailing" id="jwp-Mq-69K"/>
                                                 <constraint firstItem="GFb-HR-i2o" firstAttribute="top" secondItem="Ych-qt-nHs" secondAttribute="topMargin" id="zP8-aA-Rpb"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -120,28 +118,26 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <slider opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="500" minValue="0.0" maxValue="1000" translatesAutoresizingMaskIntoConstraints="NO" id="nfF-Xs-sGL">
-                                                    <rect key="frame" x="126" y="8" width="188" height="28.5"/>
+                                                    <rect key="frame" x="100" y="8" width="214" height="28.5"/>
                                                     <connections>
                                                         <action selector="changePrice:" destination="z7o-L0-moJ" eventType="valueChanged" id="1hB-zd-jHM"/>
                                                     </connections>
                                                 </slider>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="500 €" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MF3-0o-kEq">
-                                                    <rect key="frame" x="18" y="8" width="70" height="27.5"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="70" id="gFj-52-bq4"/>
-                                                    </constraints>
+                                                    <rect key="frame" x="18" y="8" width="84" height="27.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="nfF-Xs-sGL" firstAttribute="leading" secondItem="MF3-0o-kEq" secondAttribute="trailing" constant="40" id="9n9-2N-xNR"/>
+                                                <constraint firstItem="nfF-Xs-sGL" firstAttribute="leading" secondItem="MF3-0o-kEq" secondAttribute="trailing" id="9n9-2N-xNR"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="nfF-Xs-sGL" secondAttribute="trailing" id="Bvs-c1-bP0"/>
                                                 <constraint firstItem="MF3-0o-kEq" firstAttribute="leading" secondItem="xFO-O5-fxg" secondAttribute="leadingMargin" constant="10" id="DWZ-kk-NIP"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="MF3-0o-kEq" secondAttribute="bottom" id="LkZ-i7-K0Q"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="nfF-Xs-sGL" secondAttribute="bottom" id="MGp-hy-NZo"/>
                                                 <constraint firstItem="nfF-Xs-sGL" firstAttribute="top" secondItem="xFO-O5-fxg" secondAttribute="topMargin" id="Xxq-KU-WqT"/>
+                                                <constraint firstItem="MF3-0o-kEq" firstAttribute="width" secondItem="nfF-Xs-sGL" secondAttribute="width" multiplier="0.4" id="bUe-ar-shx"/>
                                                 <constraint firstItem="MF3-0o-kEq" firstAttribute="top" secondItem="xFO-O5-fxg" secondAttribute="topMargin" id="qp6-Q6-5Hn"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -171,6 +167,7 @@
                                                 </stepper>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="QIG-7I-MOw" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="7MC-Rd-P8H" secondAttribute="trailing" constant="157" id="Bfu-dF-Ajt"/>
                                                 <constraint firstItem="7MC-Rd-P8H" firstAttribute="centerY" secondItem="jcz-Gs-90f" secondAttribute="centerY" id="KOB-zV-6zg"/>
                                                 <constraint firstItem="QIG-7I-MOw" firstAttribute="centerY" secondItem="jcz-Gs-90f" secondAttribute="centerY" id="RbU-v3-HV6"/>
                                                 <constraint firstAttribute="trailing" secondItem="QIG-7I-MOw" secondAttribute="trailing" constant="10" id="bBW-Wo-nuw"/>
@@ -368,13 +365,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Minimum nights: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tqX-GN-xdI">
-                                        <rect key="frame" x="8" y="48" width="131" height="21"/>
+                                        <rect key="frame" x="8" y="48" width="166" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0/night" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pzd-hr-VNj">
-                                        <rect key="frame" x="246" y="48" width="66" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0/night" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pzd-hr-VNj">
+                                        <rect key="frame" x="174" y="48" width="138" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -404,8 +401,10 @@
                                     <constraint firstItem="qiI-9p-8mW" firstAttribute="top" secondItem="4hh-xB-9EI" secondAttribute="bottom" constant="8" id="dbQ-yz-QeD"/>
                                     <constraint firstItem="pzd-hr-VNj" firstAttribute="centerY" secondItem="tqX-GN-xdI" secondAttribute="centerY" id="eYV-PJ-GHG"/>
                                     <constraint firstItem="4hh-xB-9EI" firstAttribute="leading" secondItem="9FN-pu-KZv" secondAttribute="leading" constant="8" id="juS-9D-onL"/>
+                                    <constraint firstItem="tqX-GN-xdI" firstAttribute="width" secondItem="pzd-hr-VNj" secondAttribute="width" multiplier="1.2" id="qYA-PG-LMB"/>
                                     <constraint firstItem="qiI-9p-8mW" firstAttribute="centerX" secondItem="9FN-pu-KZv" secondAttribute="centerX" id="sRG-DG-AuG"/>
                                     <constraint firstAttribute="bottom" secondItem="qiI-9p-8mW" secondAttribute="bottom" constant="8" id="seN-DA-kNp"/>
+                                    <constraint firstItem="pzd-hr-VNj" firstAttribute="leading" secondItem="tqX-GN-xdI" secondAttribute="trailing" id="wa1-9n-3p3"/>
                                 </constraints>
                             </view>
                         </subviews>
