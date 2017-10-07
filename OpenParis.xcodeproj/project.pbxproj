@@ -21,6 +21,8 @@
 		D72A4C7A1F629582006A7D90 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE17FEA41F6039DC003F9727 /* SearchViewController.swift */; };
 		D73344D71F629A5F00BF890E /* ChoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73344D61F629A5F00BF890E /* ChoiceViewController.swift */; };
 		D75D833F1F883E0300836BCD /* LogementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D75D833E1F883E0300836BCD /* LogementCell.xib */; };
+		D75D83411F88B80D00836BCD /* AttractionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75D83401F88B80D00836BCD /* AttractionType.swift */; };
+		D75D83431F88B86800836BCD /* Neighborhood.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75D83421F88B86800836BCD /* Neighborhood.swift */; };
 		D7644C021F882381002AC8FA /* Logement.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7644C011F882381002AC8FA /* Logement.swift */; };
 		D7644C041F882581002AC8FA /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7644C031F882581002AC8FA /* Place.swift */; };
 /* End PBXBuildFile section */
@@ -43,6 +45,8 @@
 		D7112A631F62B78E00CC4892 /* LogementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LogementCell.swift; path = Views/LogementCell.swift; sourceTree = "<group>"; };
 		D73344D61F629A5F00BF890E /* ChoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChoiceViewController.swift; path = Controllers/ChoiceViewController.swift; sourceTree = "<group>"; };
 		D75D833E1F883E0300836BCD /* LogementCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = LogementCell.xib; path = Storyboards/LogementCell.xib; sourceTree = "<group>"; };
+		D75D83401F88B80D00836BCD /* AttractionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AttractionType.swift; path = Models/AttractionType.swift; sourceTree = "<group>"; };
+		D75D83421F88B86800836BCD /* Neighborhood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Neighborhood.swift; path = Models/Neighborhood.swift; sourceTree = "<group>"; };
 		D7644C011F882381002AC8FA /* Logement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Logement.swift; path = Models/Logement.swift; sourceTree = "<group>"; };
 		D7644C031F882581002AC8FA /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Place.swift; path = Models/Place.swift; sourceTree = "<group>"; };
 		D7B627BC6DA7E360742C9D52 /* Pods-OpenParis.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenParis.release.xcconfig"; path = "Pods/Target Support Files/Pods-OpenParis/Pods-OpenParis.release.xcconfig"; sourceTree = "<group>"; };
@@ -146,6 +150,8 @@
 			children = (
 				D7644C011F882381002AC8FA /* Logement.swift */,
 				D7644C031F882581002AC8FA /* Place.swift */,
+				D75D83401F88B80D00836BCD /* AttractionType.swift */,
+				D75D83421F88B86800836BCD /* Neighborhood.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -286,6 +292,7 @@
 			files = (
 				D73344D71F629A5F00BF890E /* ChoiceViewController.swift in Sources */,
 				D72A4C7A1F629582006A7D90 /* SearchViewController.swift in Sources */,
+				D75D83431F88B86800836BCD /* Neighborhood.swift in Sources */,
 				AEFB97201F5FFF030013F30A /* MainViewController.swift in Sources */,
 				D7644C041F882581002AC8FA /* Place.swift in Sources */,
 				AEFB971E1F5FFF030013F30A /* AppDelegate.swift in Sources */,
@@ -294,6 +301,7 @@
 				AE17FE9F1F60392B003F9727 /* SignInViewController.swift in Sources */,
 				D7112A641F62B78E00CC4892 /* LogementCell.swift in Sources */,
 				AE17FEA31F60396C003F9727 /* AddSpotViewController.swift in Sources */,
+				D75D83411F88B80D00836BCD /* AttractionType.swift in Sources */,
 				AE9D0C5D1F61890100A8D14B /* ResultsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

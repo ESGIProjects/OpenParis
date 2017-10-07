@@ -16,45 +16,44 @@ class ChoiceViewController: UITableViewController {
 
 	var mode: Choice!
     
-    var neighborhoods: [(id: Int, name: String)] = [
-        (id: 1, name: "Batignolles-Monceau"),
-        (id: 2, name: "Bourse"),
-        (id: 3, name: "Buttes-Chaumont"),
-        (id: 4, name: "Buttes-Montmartre"),
-        (id: 5, name: "Élysée"),
-        (id: 6, name: "Entrepôt"),
-        (id: 7, name: "Gobelins"),
-        (id: 8, name: "Hôtel-de-Ville"),
-        (id: 9, name: "Louvre"),
-        (id: 10, name: "Luxembourg"),
-        (id: 11, name: "Ménilmontant"),
-        (id: 12, name: "Observatoire"),
-        (id: 13, name: "Opéra"),
-        (id: 14, name: "Palais-Bourbon"),
-        (id: 15, name: "Panthéon"),
-        (id: 16, name: "Passy"),
-        (id: 17, name: "Popincourt"),
-        (id: 18, name: "Reuilly"),
-        (id: 19, name: "Temple"),
-        (id: 20, name: "Vaugirard")
+    var neighborhoods: [Neighborhood] = [
+        Neighborhood(id: 1, name: "Batignolles-Monceau"),
+        Neighborhood(id: 2, name: "Bourse"),
+        Neighborhood(id: 3, name: "Buttes-Chaumont"),
+        Neighborhood(id: 4, name: "Buttes-Montmartre"),
+        Neighborhood(id: 5, name: "Élysée"),
+        Neighborhood(id: 6, name: "Entrepôt"),
+        Neighborhood(id: 7, name: "Gobelins"),
+        Neighborhood(id: 8, name: "Hôtel-de-Ville"),
+        Neighborhood(id: 9, name: "Louvre"),
+        Neighborhood(id: 10, name: "Luxembourg"),
+        Neighborhood(id: 11, name: "Ménilmontant"),
+        Neighborhood(id: 12, name: "Observatoire"),
+        Neighborhood(id: 13, name: "Opéra"),
+        Neighborhood(id: 14, name: "Palais-Bourbon"),
+        Neighborhood(id: 15, name: "Panthéon"),
+        Neighborhood(id: 16, name: "Passy"),
+        Neighborhood(id: 17, name: "Popincourt"),
+        Neighborhood(id: 18, name: "Reuilly"),
+        Neighborhood(id: 19, name: "Temple"),
+        Neighborhood(id: 20, name: "Vaugirard")
     ]
 
-    var attractions: [(id: Int, name: String)] = [
-        (id: 7, name: "Principaux parcs, jardins et squares"),
-        (id: 12, name: "Autres musées"),
-        (id: 27, name: "Piscines municipales"),
-        (id: 29, name: "Piscines concédées"),
-        (id: 67, name: "Musées municipaux"),
-        (id: 68, name: "Musées nationaux"),
-        (id: 253, name: "Grands monuments parisiens"),
-        (id: 287, name: "Rollers parcs et skate parcs"),
-        (id: 289, name: "Marchés alimentaires et spécialisés"),
-        (id: 300, name: "Marchés spécialisés")
+    var attractions: [AttractionType] = [
+        AttractionType(id: 7, name: "Principaux parcs, jardins et squares"),
+        AttractionType(id: 12, name: "Autres musées"),
+        AttractionType(id: 27, name: "Piscines municipales"),
+        AttractionType(id: 29, name: "Piscines concédées"),
+        AttractionType(id: 67, name: "Musées municipaux"),
+        AttractionType(id: 68, name: "Musées nationaux"),
+        AttractionType(id: 253, name: "Grands monuments parisiens"),
+        AttractionType(id: 287, name: "Rollers parcs et skate parcs"),
+        AttractionType(id: 289, name: "Marchés alimentaires et spécialisés"),
+        AttractionType(id: 300, name: "Marchés spécialisés")
     ]
     
-    var selectedNeighborhood: (id: Int, name: String)?
-    var checkedAttractions = [IndexPath]()
-    var selectedAttractions = [Int]()
+    var selectedNeighborhood: Neighborhood?
+	var selectedAttractions = [AttractionType]()
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,6 +62,7 @@ class ChoiceViewController: UITableViewController {
         
         if mode == .attractions {
             navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done(_:)))
+			tableView.reloadData()
         }
     }
 	
@@ -91,10 +91,11 @@ extension ChoiceViewController {
         if mode == .neighborhood {
             cell.textLabel?.text = neighborhoods[indexPath.row].name
         } else {
-            cell.textLabel?.text = attractions[indexPath.row].name
+			let attractionType = attractions[indexPath.row]
+            cell.textLabel?.text = attractionType.name
             
             // keep count of attractions to display checkmark
-            if checkedAttractions.contains(indexPath) {
+            if selectedAttractions.contains(attractionType) {
                 cell.accessoryType = .checkmark
             }
             else {
@@ -115,12 +116,12 @@ extension ChoiceViewController {
             selectedNeighborhood = neighborhoods[indexPath.row]
             performSegue(withIdentifier: "unwindToSearch", sender: self)
         } else {
-            if checkedAttractions.contains(indexPath) {
-                checkedAttractions.remove(at: checkedAttractions.index(of: indexPath)!)
-                selectedAttractions.remove(at: selectedAttractions.index(of: attractions[indexPath.row].id)!)
+			let selectedAttraction = attractions[indexPath.row]
+			
+            if selectedAttractions.contains(selectedAttraction) {
+                selectedAttractions.remove(at: selectedAttractions.index(of: selectedAttraction)!)
             } else {
-                checkedAttractions.append(indexPath)
-                selectedAttractions.append(attractions[indexPath.row].id)
+                selectedAttractions.append(attractions[indexPath.row])
             }
             
             tableView.reloadData()

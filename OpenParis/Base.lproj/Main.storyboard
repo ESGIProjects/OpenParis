@@ -332,8 +332,6 @@
                     </view>
                     <connections>
                         <outlet property="mapView" destination="jac-IC-pds" id="MxH-zz-66k"/>
-                        <outlet property="mapViewCollapsedHeightConstraint" destination="pw4-Gk-LVO" id="287-Qx-YTf"/>
-                        <outlet property="mapViewExpandedHeightConstraint" destination="1YV-9O-ZAt" id="fDa-PR-bQf"/>
                         <outlet property="tableView" destination="pcx-Oe-TYf" id="aZc-LH-fjU"/>
                         <segue destination="5zC-Tj-4ql" kind="show" id="MC5-ZL-NtA"/>
                     </connections>

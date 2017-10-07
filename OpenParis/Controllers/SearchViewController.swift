@@ -21,8 +21,8 @@ class SearchViewController : UITableViewController {
 	var priceMin = 200
 	var priceMax = 500
     var duration = 1
-    var selectedAttractions = [Int]()
-    var selectedNeighborhood: (id: Int, name: String)?
+    var selectedAttractions = [AttractionType]()
+    var selectedNeighborhood: Neighborhood?
 	
 	var retrievedLogements: [Logement]?
 	
@@ -33,16 +33,24 @@ class SearchViewController : UITableViewController {
 	}
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		
+		// Choose neighborhood or attraction
 		if segue.identifier == "choiceSegue" {
-			
 			guard let navigationController = segue.destination as? UINavigationController,
 				let controller = navigationController.childViewControllers.first as? ChoiceViewController,
 				let choice = sender as? ChoiceViewController.Choice
 				else { return }
 			
 			controller.mode = choice
+			
+			if choice == .attractions {
+				// send back selected attractions array
+				// to check the ones already selected
+				controller.selectedAttractions = selectedAttractions
+			}
 		}
 		
+		// Display search results
 		if segue.identifier == "resultsSegue" {
 			guard let controller = segue.destination as? ResultsViewController,
 				let logements = retrievedLogements
@@ -69,29 +77,12 @@ class SearchViewController : UITableViewController {
 		}
 		
 		label.text = (value == Int(sender.maximumValue)) ? "\(value!)+ €" : "\(value!) €"
-		
 	}
 	
 	@IBAction func changeDuration(_ sender: UIStepper) {
 		let value = Int(sender.value)
 		nightsLabel.text = (value == Int(sender.maximumValue)) ? "\(value)+ nights" : "\(value) nights"
 	}
-    
-    @IBAction func unwindToSearch(_ segue: UIStoryboardSegue) {
-        if segue.source is ChoiceViewController {
-            let source = segue.source as! ChoiceViewController
-            
-            if source.mode == .neighborhood {
-                selectedNeighborhood = source.selectedNeighborhood!
-                neighborhoodLabel.text = selectedNeighborhood!.name
-            } else {
-                selectedAttractions = source.selectedAttractions
-                attractionsLabel.text = "\(selectedAttractions.count)"
-            }
-			
-			tableView.reloadData()            
-        }
-    }
     
     @IBAction func search(_ sender: UIButton) {
         if let url = url() {
@@ -110,21 +101,20 @@ class SearchViewController : UITableViewController {
         }
     }
 	
-	func convertJSON(_ json: JSON) -> [Logement]? {
-		
-		if json["count"].intValue <= 0 {
-			return nil
+	@IBAction func unwindToSearch(_ segue: UIStoryboardSegue) {
+		if segue.source is ChoiceViewController {
+			let source = segue.source as! ChoiceViewController
+			
+			if source.mode == .neighborhood {
+				selectedNeighborhood = source.selectedNeighborhood!
+				neighborhoodLabel.text = selectedNeighborhood!.name
+			} else {
+				selectedAttractions = source.selectedAttractions
+				attractionsLabel.text = "\(selectedAttractions.count)"
+			}
+			
+			tableView.reloadData()
 		}
-		
-		var logements = [Logement]()
-		
-		let array = json["array"].arrayValue
-		for jsonLogement in array {
-			let logement = Logement(json: jsonLogement)
-			logements.append(logement)
-		}
-		
-		return logements
 	}
 	
 	// MARK: - Helpers
@@ -140,7 +130,7 @@ class SearchViewController : UITableViewController {
             parameters["duration"] = "\(duration)"
             parameters["neighborhood"] = "\(neighborhood.id)"
             
-            let attractionStringArray = selectedAttractions.map { "\($0)" }
+            let attractionStringArray = selectedAttractions.map { "\($0.id)" }
             parameters["attractions"] = attractionStringArray.joined(separator: ",")
             
             var parametersString = ""
@@ -153,6 +143,26 @@ class SearchViewController : UITableViewController {
         }
         return nil
     }
+	
+	func convertJSON(_ json: JSON) -> [Logement]? {
+		
+		// if no data, return nil
+		if json["count"].intValue <= 0 {
+			return nil
+		}
+		
+		var logements = [Logement]()
+		
+		let array = json["array"].arrayValue
+		
+		// loop through every logement and create the object from json
+		for jsonLogement in array {
+			let logement = Logement(json: jsonLogement)
+			logements.append(logement)
+		}
+		
+		return logements
+	}
 }
 
 // MARK: - UITableViewDelegate

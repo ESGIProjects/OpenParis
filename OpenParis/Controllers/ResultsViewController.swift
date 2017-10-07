@@ -22,6 +22,9 @@ class ResultsViewController : UIViewController {
 		
 		tableView.register(UINib(nibName: "LogementCell", bundle: nil), forCellReuseIdentifier: "LogementCell")
 		
+		// Sort logements by price
+		logements.sort { $0.price < $1.price }
+		
 		// Original map region
 		let center = CLLocationCoordinate2D(latitude: logements[0].latitude, longitude: logements[0].longitude)
 		let span = MKCoordinateSpan(latitudeDelta: 0.027, longitudeDelta: 0.027)
@@ -40,6 +43,7 @@ class ResultsViewController : UIViewController {
 	}
 }
 
+// MARK: - UITableViewDataSource
 extension ResultsViewController: UITableViewDataSource {
 	func numberOfSections(in tableView: UITableView) -> Int {
 		return 1
@@ -68,12 +72,14 @@ extension ResultsViewController: UITableViewDataSource {
 	}
 }
 
+// MARK: - UITableViewDelegate
 extension ResultsViewController: UITableViewDelegate {
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: true)
 	}
 }
 
+// MARK: - MKMapViewDelegate
 extension ResultsViewController : MKMapViewDelegate {
 	func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
 		if annotation is MKUserLocation { return nil }
