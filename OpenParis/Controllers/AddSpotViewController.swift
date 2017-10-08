@@ -8,6 +8,19 @@
 
 import UIKit
 
-class AddSpotViewController : UIViewController{
-    
+class AddSpotViewController : UIViewController {
+	
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		
+		performSegue(withIdentifier: "signIn", sender: nil)
+	}
+	
+	override func didReceiveMemoryWarning() {
+		super.didReceiveMemoryWarning()
+	}
+	
+	@IBAction func unwindToAddSpot(_ segue: UIStoryboardSegue) {
+		// normally connected, but check in case - if not, push sign-in controller back
+	}
 }

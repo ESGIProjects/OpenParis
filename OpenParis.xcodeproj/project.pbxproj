@@ -25,6 +25,7 @@
 		D75D83431F88B86800836BCD /* Neighborhood.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75D83421F88B86800836BCD /* Neighborhood.swift */; };
 		D7644C021F882381002AC8FA /* Logement.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7644C011F882381002AC8FA /* Logement.swift */; };
 		D7644C041F882581002AC8FA /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7644C031F882581002AC8FA /* Place.swift */; };
+		D7ECA0571F8A4C5100BB133C /* UIView+RoundCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7ECA0561F8A4C5100BB133C /* UIView+RoundCorners.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		D7644C011F882381002AC8FA /* Logement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Logement.swift; path = Models/Logement.swift; sourceTree = "<group>"; };
 		D7644C031F882581002AC8FA /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Place.swift; path = Models/Place.swift; sourceTree = "<group>"; };
 		D7B627BC6DA7E360742C9D52 /* Pods-OpenParis.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenParis.release.xcconfig"; path = "Pods/Target Support Files/Pods-OpenParis/Pods-OpenParis.release.xcconfig"; sourceTree = "<group>"; };
+		D7ECA0561F8A4C5100BB133C /* UIView+RoundCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+RoundCorners.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 				D7644BFF1F881F93002AC8FA /* Storyboards */,
 				AEFB97241F5FFF030013F30A /* Assets.xcassets */,
 				AEFB97291F5FFF030013F30A /* Info.plist */,
+				D7ECA0561F8A4C5100BB133C /* UIView+RoundCorners.swift */,
 			);
 			path = OpenParis;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7ECA0571F8A4C5100BB133C /* UIView+RoundCorners.swift in Sources */,
 				D73344D71F629A5F00BF890E /* ChoiceViewController.swift in Sources */,
 				D72A4C7A1F629582006A7D90 /* SearchViewController.swift in Sources */,
 				D75D83431F88B86800836BCD /* Neighborhood.swift in Sources */,

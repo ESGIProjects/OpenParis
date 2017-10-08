@@ -1,5 +1,5 @@
 //
-//  ListViewController.swift
+//  ResultsViewController.swift
 //  OpenParis
 //
 //  Created by Kévin Le on 07/09/2017.
