@@ -8,5 +8,6 @@ target 'OpenParis' do
   # Pods for OpenParis
   pod 'Alamofire', '~> 4.5'
   pod 'SwiftyJSON'
+  pod 'PKHUD'
   
 end

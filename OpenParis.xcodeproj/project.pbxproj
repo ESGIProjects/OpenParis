@@ -52,7 +52,7 @@
 		D7644C011F882381002AC8FA /* Logement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Logement.swift; path = Models/Logement.swift; sourceTree = "<group>"; };
 		D7644C031F882581002AC8FA /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Place.swift; path = Models/Place.swift; sourceTree = "<group>"; };
 		D7B627BC6DA7E360742C9D52 /* Pods-OpenParis.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenParis.release.xcconfig"; path = "Pods/Target Support Files/Pods-OpenParis/Pods-OpenParis.release.xcconfig"; sourceTree = "<group>"; };
-		D7ECA0561F8A4C5100BB133C /* UIView+RoundCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+RoundCorners.swift"; sourceTree = "<group>"; };
+		D7ECA0561F8A4C5100BB133C /* UIView+RoundCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIView+RoundCorners.swift"; path = "Helpers/UIView+RoundCorners.swift"; sourceTree = "<group>"; };
 		D7EEBF731F8B4A5E009761C7 /* LogementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LogementViewController.swift; path = Controllers/LogementViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -128,7 +128,7 @@
 				D7644BFF1F881F93002AC8FA /* Storyboards */,
 				AEFB97241F5FFF030013F30A /* Assets.xcassets */,
 				AEFB97291F5FFF030013F30A /* Info.plist */,
-				D7ECA0561F8A4C5100BB133C /* UIView+RoundCorners.swift */,
+				D7F1611A1F8C0D6A00C0C631 /* Helpers */,
 			);
 			path = OpenParis;
 			sourceTree = "<group>";
@@ -160,6 +160,14 @@
 				D75D83421F88B86800836BCD /* Neighborhood.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		D7F1611A1F8C0D6A00C0C631 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				D7ECA0561F8A4C5100BB133C /* UIView+RoundCorners.swift */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,11 +285,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-OpenParis/Pods-OpenParis-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/PKHUD/PKHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PKHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;

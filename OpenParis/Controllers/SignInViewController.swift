@@ -8,6 +8,10 @@
 
 import UIKit
 
+import Alamofire
+import SwiftyJSON
+import PKHUD
+
 class SignInViewController : UIViewController {
 	
 	@IBOutlet weak var mailView: UIView!
@@ -26,6 +30,10 @@ class SignInViewController : UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		
+		// Fields events
+		mailTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+		passwordTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
 	}
 	
 	override func viewDidLayoutSubviews() {
@@ -44,7 +52,37 @@ class SignInViewController : UIViewController {
 	// MARK: - IBActions
 	
 	@IBAction func signIn(_ sender: Any) {
-		// api call
+		HUD.show(.progress)
+		
+		let parameters = [
+			"mail": mailTextField.text!,
+			"password": passwordTextField.text!
+		]
+		
+		Alamofire.request("http://localhost:8080/signin", method: .post, parameters: parameters).validate().responseJSON { [unowned self] response in
+			switch response.result {
+				
+			case .success(let value):
+				let json = JSON(value)
+				if json["message"].stringValue == "success" {
+					let userId = json["id"].intValue
+					let userMail = json["mail"].stringValue
+					
+					UserDefaults.standard.set(userId, forKey: "userId")
+					UserDefaults.standard.set(userMail, forKey: "userMail")
+					
+					HUD.flash(.success, delay: 1.0)
+					self.performSegue(withIdentifier: "unwindToAddSpot", sender: self)
+				}
+				else {
+					HUD.flash(.error, delay: 1.0)
+				}
+				
+			case .failure(let error):
+				print(error.localizedDescription)
+				HUD.flash(.error)
+			}
+		}
 	}
 	
 	@IBAction func cancel(_ sender: UIBarButtonItem) {

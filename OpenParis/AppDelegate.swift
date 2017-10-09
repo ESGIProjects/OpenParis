@@ -51,13 +51,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 		let defaults = UserDefaults.standard
+		defaults.removeObject(forKey: "username")
 		
-		if let username = defaults.object(forKey: "username") as? String {
+		/* if let username = defaults.object(forKey: "username") as? String {
 			print(username)
 		} else {
 			print("Not connected")
 			defaults.set("Silver", forKey: "username")
-		}
+		} */
 		
 		return true
 	}

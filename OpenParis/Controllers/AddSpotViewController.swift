@@ -22,7 +22,7 @@ class AddSpotViewController : UITableViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		if UserDefaults.standard.object(forKey: "username") != nil {
+		if UserDefaults.standard.object(forKey: "userId") != nil {
 			navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "signOut"), style: .plain, target: self, action: #selector(signOut(_:)))
 		}
 	}
@@ -55,8 +55,8 @@ class AddSpotViewController : UITableViewController {
 	// MARK: - IBActions
 	
 	@IBAction func add(_ sender: UIButton) {
-		if let username = UserDefaults.standard.object(forKey: "username") as? String {
-			print(username)
+		if let userId = UserDefaults.standard.object(forKey: "userId") as? String {
+			print(userId)
 		} else {
 			performSegue(withIdentifier: "signIn", sender: nil)
 		}
@@ -64,7 +64,13 @@ class AddSpotViewController : UITableViewController {
 	
 	@IBAction func unwindToAddSpot(_ segue: UIStoryboardSegue) {
 		// check if connected
-		// if connected, request
+		print("Unwind to add spot")
+		if segue.source is SignInViewController || segue.source is SignUpViewController {
+			print("Unwind from Sign In or Sign Up")
+			if UserDefaults.standard.object(forKey: "userId") != nil {
+				navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "signOut"), style: .plain, target: self, action: #selector(signOut(_:)))
+			}
+		}
 		
 		// back from choice
 		if let source = segue.source as? ChoiceViewController {
