@@ -7,6 +7,11 @@
 //
 
 import UIKit
+import CoreLocation
+
+import Alamofire
+import SwiftyJSON
+import PKHUD
 
 class AddSpotViewController : UITableViewController {
 	
@@ -16,6 +21,12 @@ class AddSpotViewController : UITableViewController {
 	@IBOutlet weak var attractionLabel: UILabel!
 	
 	var selectedAttraction: AttractionType?
+	var fieldsFilled: Bool {
+		get {
+			return nameTextField.text != "" && addressTextField.text != ""
+				&& zipCodeTextField.text != "" && selectedAttraction != nil
+		}
+	}
 	
 	// MARK: - UIViewController
 	
@@ -55,8 +66,68 @@ class AddSpotViewController : UITableViewController {
 	// MARK: - IBActions
 	
 	@IBAction func add(_ sender: UIButton) {
-		if let userId = UserDefaults.standard.object(forKey: "userId") as? String {
-			print(userId)
+		let userId = UserDefaults.standard.integer(forKey: "userId")
+		if userId > 0 {
+			if fieldsFilled {
+				// api call
+				
+				HUD.show(.progress)
+				
+				let geoCoder = CLGeocoder()
+				
+				let completeAddress = "\(addressTextField.text!) \(zipCodeTextField.text!) Paris"
+				
+				geoCoder.geocodeAddressString(completeAddress) { [unowned self] placemarks, error in
+					guard let placemarks = placemarks, let location = placemarks.first?.location else {
+						HUD.flash(.error)
+						
+						let alertController = UIAlertController(title: "Error with address", message: "We could not locate the address.", preferredStyle: .alert)
+						alertController.addAction(UIAlertAction(title: "OK", style: .default))
+						self.present(alertController, animated: true)
+						
+						return
+					}
+					
+					let parameters: [String: Any] = [
+						"name": self.nameTextField.text!,
+						"address": self.addressTextField.text!,
+						"zipCode": self.zipCodeTextField.text!,
+						"latitude": location.coordinate.latitude,
+						"longitude": location.coordinate.longitude,
+						"catId": self.selectedAttraction!.id,
+						"userId": userId
+					]
+					
+					Alamofire.request("http://localhost:8080/places", method: .post, parameters: parameters).validate().responseJSON { response in
+						switch response.result {
+							
+						case .success(let value):
+							let json = JSON(value)
+							if json["message"].stringValue == "success" {
+								self.nameTextField.text = ""
+								self.addressTextField.text = ""
+								self.zipCodeTextField.text = ""
+								self.selectedAttraction = nil
+								self.attractionLabel.text = ""
+								
+								HUD.flash(.success, delay: 1.0)
+							}
+							else {
+								HUD.flash(.error, delay: 1.0)
+							}
+							
+						case .failure(let error):
+							print(error.localizedDescription)
+							HUD.flash(.error)
+						}
+					}
+				}
+			}
+			else {
+				let alertController = UIAlertController(title: "Missing fields", message: "You need to fill all the fields.", preferredStyle: .alert)
+				alertController.addAction(UIAlertAction(title: "OK", style: .default))
+				present(alertController, animated: true)
+			}
 		} else {
 			performSegue(withIdentifier: "signIn", sender: nil)
 		}

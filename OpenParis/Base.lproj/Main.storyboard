@@ -155,7 +155,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 night" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7MC-Rd-P8H">
-                                                    <rect key="frame" x="8" y="11.5" width="51" height="21"/>
+                                                    <rect key="frame" x="8" y="11.5" width="198" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -168,10 +168,10 @@
                                                 </stepper>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="QIG-7I-MOw" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="7MC-Rd-P8H" secondAttribute="trailing" constant="157" id="Bfu-dF-Ajt"/>
                                                 <constraint firstItem="7MC-Rd-P8H" firstAttribute="centerY" secondItem="jcz-Gs-90f" secondAttribute="centerY" id="KOB-zV-6zg"/>
                                                 <constraint firstItem="QIG-7I-MOw" firstAttribute="centerY" secondItem="jcz-Gs-90f" secondAttribute="centerY" id="RbU-v3-HV6"/>
                                                 <constraint firstAttribute="trailing" secondItem="QIG-7I-MOw" secondAttribute="trailing" constant="10" id="bBW-Wo-nuw"/>
+                                                <constraint firstItem="QIG-7I-MOw" firstAttribute="leading" secondItem="7MC-Rd-P8H" secondAttribute="trailing" constant="10" id="fOh-yw-dcc"/>
                                                 <constraint firstItem="7MC-Rd-P8H" firstAttribute="leading" secondItem="jcz-Gs-90f" secondAttribute="leadingMargin" id="gP9-T9-AK8"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -992,6 +992,6 @@
         <image name="plus" width="35" height="35"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="MwK-ct-sX4"/>
+        <segue reference="HdG-wN-qVx"/>
     </inferredMetricsTieBreakers>
 </document>
