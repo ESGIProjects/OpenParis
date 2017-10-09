@@ -339,10 +339,10 @@
             </objects>
             <point key="canvasLocation" x="1868" y="237"/>
         </scene>
-        <!--Logement View Controller-->
+        <!--Place-->
         <scene sceneID="nWY-Uv-cxH">
             <objects>
-                <viewController id="5zC-Tj-4ql" customClass="LogementViewController" customModule="OpenParis" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Place" id="5zC-Tj-4ql" customClass="LogementViewController" customModule="OpenParis" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vxg-aG-IBJ"/>
                         <viewControllerLayoutGuide type="bottom" id="KwD-fz-VK5"/>
@@ -469,7 +469,7 @@
                                         <rect key="frame" x="15" y="5" width="218" height="35"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next" textContentType="email"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" keyboardAppearance="alert" returnKeyType="next" textContentType="email"/>
                                         <connections>
                                             <outlet property="delegate" destination="f8L-lz-h1S" id="2fH-RD-BWN"/>
                                         </connections>
@@ -491,7 +491,7 @@
                                         <rect key="frame" x="15" y="5" width="218" height="35"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="go" secureTextEntry="YES" textContentType="password"/>
+                                        <textInputTraits key="textInputTraits" keyboardAppearance="alert" returnKeyType="go" secureTextEntry="YES" textContentType="password"/>
                                         <connections>
                                             <outlet property="delegate" destination="f8L-lz-h1S" id="fIx-2C-kd5"/>
                                         </connections>
@@ -578,7 +578,7 @@
                                         <rect key="frame" x="15" y="5" width="218" height="35"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next" textContentType="email"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" keyboardAppearance="alert" returnKeyType="next" textContentType="email"/>
                                         <connections>
                                             <outlet property="delegate" destination="4R5-2k-Sbv" id="Y9c-Xo-uKd"/>
                                         </connections>
@@ -600,7 +600,7 @@
                                         <rect key="frame" x="15" y="5" width="218" height="35"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next" textContentType="email"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" keyboardAppearance="alert" returnKeyType="next" textContentType="email"/>
                                         <connections>
                                             <outlet property="delegate" destination="4R5-2k-Sbv" id="F27-ej-ThP"/>
                                         </connections>
@@ -622,7 +622,7 @@
                                         <rect key="frame" x="15" y="5" width="218" height="35"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="next" secureTextEntry="YES" textContentType="password"/>
+                                        <textInputTraits key="textInputTraits" keyboardAppearance="alert" returnKeyType="next" secureTextEntry="YES" textContentType="password"/>
                                         <connections>
                                             <outlet property="delegate" destination="4R5-2k-Sbv" id="QW5-Mi-Dhu"/>
                                         </connections>
@@ -644,7 +644,7 @@
                                         <rect key="frame" x="15" y="5" width="218" height="35"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="go" secureTextEntry="YES" textContentType="password"/>
+                                        <textInputTraits key="textInputTraits" keyboardAppearance="alert" returnKeyType="go" secureTextEntry="YES" textContentType="password"/>
                                         <connections>
                                             <outlet property="delegate" destination="4R5-2k-Sbv" id="0TQ-UP-Ea5"/>
                                         </connections>
@@ -839,7 +839,7 @@
                                                     <rect key="frame" x="96" y="13.5" width="216" height="17"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                     <connections>
                                                         <outlet property="delegate" destination="6Y7-K1-zKn" id="Xm2-la-MLJ"/>
                                                     </connections>
