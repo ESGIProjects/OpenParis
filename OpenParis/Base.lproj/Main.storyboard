@@ -52,6 +52,7 @@
                     </navigationItem>
                     <connections>
                         <segue destination="fs0-vG-kPx" kind="unwind" identifier="unwindToSearch" unwindAction="unwindToSearch:" id="9CS-1H-SlP"/>
+                        <segue destination="fs0-vG-kPx" kind="unwind" identifier="unwindToAddSpot" unwindAction="unwindToAddSpot:" id="g4q-cR-1rh"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aOC-eF-SXh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -866,8 +867,8 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qG7-yg-32M">
-                                                    <rect key="frame" x="148.5" y="13.5" width="130.5" height="18"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qG7-yg-32M">
+                                                    <rect key="frame" x="148.5" y="22.5" width="130.5" height="0.0"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -895,7 +896,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DpU-dX-UIB">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                                    <rect key="frame" x="0.0" y="7" width="320" height="30"/>
                                                     <state key="normal" title="Add"/>
                                                     <connections>
                                                         <action selector="add:" destination="6Y7-K1-zKn" eventType="touchUpInside" id="xub-E2-DdS"/>
@@ -903,9 +904,8 @@
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="DpU-dX-UIB" secondAttribute="bottom" id="DQF-Lt-eKl"/>
+                                                <constraint firstItem="DpU-dX-UIB" firstAttribute="centerY" secondItem="Jjk-wQ-qbh" secondAttribute="centerY" id="Xv9-u1-SC3"/>
                                                 <constraint firstItem="DpU-dX-UIB" firstAttribute="leading" secondItem="Jjk-wQ-qbh" secondAttribute="leading" id="YhD-8k-BZH"/>
-                                                <constraint firstItem="DpU-dX-UIB" firstAttribute="top" secondItem="Jjk-wQ-qbh" secondAttribute="top" id="oOc-Kh-X4S"/>
                                                 <constraint firstAttribute="trailing" secondItem="DpU-dX-UIB" secondAttribute="trailing" id="r3y-po-qwG"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -921,6 +921,7 @@
                     <navigationItem key="navigationItem" title="Add a spot" id="bA5-Wf-AlZ"/>
                     <connections>
                         <outlet property="addressTextField" destination="gHx-Vo-2GX" id="U1n-7r-t2K"/>
+                        <outlet property="attractionLabel" destination="qG7-yg-32M" id="OEK-ZA-Y9p"/>
                         <outlet property="nameTextField" destination="POA-lg-Fiw" id="XqH-yH-KwG"/>
                         <outlet property="zipCodeTextField" destination="app-YP-n4E" id="hzw-Dn-CAn"/>
                         <segue destination="eli-ur-6Hw" kind="showDetail" identifier="signIn" id="XE3-01-zf8"/>

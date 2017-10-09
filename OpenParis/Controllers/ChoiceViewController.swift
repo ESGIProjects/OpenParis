@@ -15,42 +15,7 @@ class ChoiceViewController: UITableViewController {
     }
 
 	var mode: Choice!
-    
-    var neighborhoods: [Neighborhood] = [
-        Neighborhood(id: 1, name: "Batignolles-Monceau"),
-        Neighborhood(id: 2, name: "Bourse"),
-        Neighborhood(id: 3, name: "Buttes-Chaumont"),
-        Neighborhood(id: 4, name: "Buttes-Montmartre"),
-        Neighborhood(id: 5, name: "Élysée"),
-        Neighborhood(id: 6, name: "Entrepôt"),
-        Neighborhood(id: 7, name: "Gobelins"),
-        Neighborhood(id: 8, name: "Hôtel-de-Ville"),
-        Neighborhood(id: 9, name: "Louvre"),
-        Neighborhood(id: 10, name: "Luxembourg"),
-        Neighborhood(id: 11, name: "Ménilmontant"),
-        Neighborhood(id: 12, name: "Observatoire"),
-        Neighborhood(id: 13, name: "Opéra"),
-        Neighborhood(id: 14, name: "Palais-Bourbon"),
-        Neighborhood(id: 15, name: "Panthéon"),
-        Neighborhood(id: 16, name: "Passy"),
-        Neighborhood(id: 17, name: "Popincourt"),
-        Neighborhood(id: 18, name: "Reuilly"),
-        Neighborhood(id: 19, name: "Temple"),
-        Neighborhood(id: 20, name: "Vaugirard")
-    ]
-
-    var attractions: [AttractionType] = [
-        AttractionType(id: 7, name: "Principaux parcs, jardins et squares"),
-        AttractionType(id: 12, name: "Autres musées"),
-        AttractionType(id: 27, name: "Piscines municipales"),
-        AttractionType(id: 29, name: "Piscines concédées"),
-        AttractionType(id: 67, name: "Musées municipaux"),
-        AttractionType(id: 68, name: "Musées nationaux"),
-        AttractionType(id: 253, name: "Grands monuments parisiens"),
-        AttractionType(id: 287, name: "Rollers parcs et skate parcs"),
-        AttractionType(id: 289, name: "Marchés alimentaires et spécialisés"),
-        AttractionType(id: 300, name: "Marchés spécialisés")
-    ]
+	var multipleAttractions: Bool = true
     
     var selectedNeighborhood: Neighborhood?
 	var selectedAttractions = [AttractionType]()
@@ -82,20 +47,20 @@ extension ChoiceViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (mode == .neighborhood) ? neighborhoods.count : attractions.count
+        return (mode == .neighborhood) ? AppDelegate.neighborhoods.count : AppDelegate.attractions.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChoiceCell", for: indexPath)
         
         if mode == .neighborhood {
-            cell.textLabel?.text = neighborhoods[indexPath.row].name
+            cell.textLabel?.text = AppDelegate.neighborhoods[indexPath.row].name
         } else {
-			let attractionType = attractions[indexPath.row]
+			let attractionType = AppDelegate.attractions[indexPath.row]
             cell.textLabel?.text = attractionType.name
             
             // keep count of attractions to display checkmark
-            if selectedAttractions.contains(attractionType) {
+            if selectedAttractions.contains(attractionType) && multipleAttractions {
                 cell.accessoryType = .checkmark
             }
             else {
@@ -113,16 +78,21 @@ extension ChoiceViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         
         if mode == .neighborhood {
-            selectedNeighborhood = neighborhoods[indexPath.row]
+            selectedNeighborhood = AppDelegate.neighborhoods[indexPath.row]
             performSegue(withIdentifier: "unwindToSearch", sender: self)
         } else {
-			let selectedAttraction = attractions[indexPath.row]
-			
-            if selectedAttractions.contains(selectedAttraction) {
-                selectedAttractions.remove(at: selectedAttractions.index(of: selectedAttraction)!)
-            } else {
-                selectedAttractions.append(attractions[indexPath.row])
-            }
+			if !multipleAttractions {
+				selectedAttractions.append(AppDelegate.attractions[indexPath.row])
+				performSegue(withIdentifier: "unwindToAddSpot", sender: self)
+			} else {
+				let selectedAttraction = AppDelegate.attractions[indexPath.row]
+				
+				if selectedAttractions.contains(selectedAttraction) {
+					selectedAttractions.remove(at: selectedAttractions.index(of: selectedAttraction)!)
+				} else {
+					selectedAttractions.append(AppDelegate.attractions[indexPath.row])
+				}
+			}
             
             tableView.reloadData()
         }
