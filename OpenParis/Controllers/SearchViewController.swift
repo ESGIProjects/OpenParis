@@ -85,14 +85,21 @@ class SearchViewController : UITableViewController {
     
     @IBAction func search(_ sender: UIButton) {
         if let url = url() {
-			print(url)
             Alamofire.request(url, method: .get).validate().responseJSON { response in
                 switch response.result {
                     
                 case .success(let value):
 					self.retrievedLogements = self.convertJSON(JSON(value))
-                    self.performSegue(withIdentifier: "resultsSegue", sender: self)
-                    
+					
+					if self.retrievedLogements != nil {
+						let alert = UIAlertController(title: "No results", message: "Your search didn't return any result. Try to change the parameters.", preferredStyle: .alert)
+						alert.addAction(UIAlertAction(title: "OK", style: .default))
+						self.present(alert, animated: true)
+					}
+					else {
+						self.performSegue(withIdentifier: "resultsSegue", sender: self)
+					}
+					
                 case .failure(let error):
                     print(error)
                 }
