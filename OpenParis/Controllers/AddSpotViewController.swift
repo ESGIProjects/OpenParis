@@ -27,6 +27,12 @@ class AddSpotViewController : UITableViewController {
 		super.didReceiveMemoryWarning()
 	}
 	
+	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+		super.touchesBegan(touches, with: event)
+		
+		view.endEditing(true)
+	}
+	
 	// MARK: - IBActions
 	
 	@IBAction func add(_ sender: UIButton) {
@@ -41,5 +47,21 @@ class AddSpotViewController : UITableViewController {
 		// check if connected
 		// if connected, request
 		
+	}
+}
+
+extension AddSpotViewController: UITextFieldDelegate {
+	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+		textField.resignFirstResponder()
+		
+		if textField == nameTextField {
+			addressTextField.becomeFirstResponder()
+		}
+		
+		if textField == addressTextField {
+			zipCodeTextField.becomeFirstResponder()
+		}
+		
+		return true
 	}
 }

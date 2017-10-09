@@ -27,10 +27,13 @@ class ResultsViewController : UIViewController {
 		
 		// Original map region
 		let center = CLLocationCoordinate2D(latitude: logements[0].latitude, longitude: logements[0].longitude)
-		let span = MKCoordinateSpan(latitudeDelta: 0.027, longitudeDelta: 0.027)
+		let span = MKCoordinateSpan(latitudeDelta: 0.025, longitudeDelta: 0.025)
 		var region = MKCoordinateRegion(center: center, span: span)
 		region = mapView.regionThatFits(region)
 		mapView.setRegion(region, animated: true)
+		
+		// delete every pin on the map (precaution)
+		mapView.removeAnnotations(mapView.annotations)
 
 		// Adding every logements to the map
 		for logement in logements {
@@ -38,6 +41,7 @@ class ResultsViewController : UIViewController {
 			let annotation = MKPointAnnotation()
 			annotation.coordinate = coordinate
 			annotation.title = logement.name
+			annotation.subtitle = "\(logement.price) €"
 			mapView.addAnnotation(annotation)
 		}
 	}
