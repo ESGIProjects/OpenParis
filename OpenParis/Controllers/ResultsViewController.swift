@@ -27,7 +27,7 @@ class ResultsViewController : UIViewController {
 		
 		// Original map region
 		let center = CLLocationCoordinate2D(latitude: logements[0].latitude, longitude: logements[0].longitude)
-		let span = MKCoordinateSpan(latitudeDelta: 0.025, longitudeDelta: 0.025)
+		let span = MKCoordinateSpan(latitudeDelta: 0.020, longitudeDelta: 0.020)
 		var region = MKCoordinateRegion(center: center, span: span)
 		region = mapView.regionThatFits(region)
 		mapView.setRegion(region, animated: true)
@@ -41,7 +41,7 @@ class ResultsViewController : UIViewController {
 			let annotation = MKPointAnnotation()
 			annotation.coordinate = coordinate
 			annotation.title = logement.name
-			annotation.subtitle = "\(logement.price) €"
+			annotation.subtitle = AppDelegate.roomTypes[logement.roomType]
 			mapView.addAnnotation(annotation)
 		}
 	}

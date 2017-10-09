@@ -49,6 +49,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		AttractionType(id: 300, name: "Marchés spécialisés")
 	]
 	
+	static let roomTypes: [Logement.RoomType: String] = [
+		.entireHome: "Entire home",
+		.privateRoom: "Private room",
+		.sharedRoom: "Shared room"
+	]
+	
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 		let defaults = UserDefaults.standard
 		defaults.removeObject(forKey: "username")

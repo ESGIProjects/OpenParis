@@ -91,7 +91,7 @@ class SearchViewController : UITableViewController {
                 case .success(let value):
 					self.retrievedLogements = self.convertJSON(JSON(value))
 					
-					if self.retrievedLogements != nil {
+					if self.retrievedLogements == nil {
 						let alert = UIAlertController(title: "No results", message: "Your search didn't return any result. Try to change the parameters.", preferredStyle: .alert)
 						alert.addAction(UIAlertAction(title: "OK", style: .default))
 						self.present(alert, animated: true)

@@ -55,12 +55,12 @@ class LogementViewController: UIViewController {
 		nameLabel.text = logement.name
 		minimumNightsLabel.text = "Minimum nights: \(logement.minimumNights)"
 		priceLabel.text = "\(logement.price) €/night"
-		neighborhoodLabel.text = "\(logement.neighborhood)"
+		neighborhoodLabel.text = AppDelegate.neighborhoods.filter({ $0.id == logement.neighborhood }).first!.name
 		
 		let logementCoordinate = CLLocationCoordinate2D(latitude: logement.latitude, longitude: logement.longitude)
 		
 		// Original map region
-		let span = MKCoordinateSpan(latitudeDelta: 0.025, longitudeDelta: 0.025)
+		let span = MKCoordinateSpan(latitudeDelta: 0.020, longitudeDelta: 0.020)
 		var region = MKCoordinateRegion(center: logementCoordinate, span: span)
 		region = mapView.regionThatFits(region)
 		mapView.setRegion(region, animated: true)
@@ -72,7 +72,7 @@ class LogementViewController: UIViewController {
 		let logementAnnotation = MKPointAnnotation()
 		logementAnnotation.coordinate = logementCoordinate
 		logementAnnotation.title = logement.name
-		logementAnnotation.subtitle = "\(logement.price) €"
+		logementAnnotation.subtitle = AppDelegate.roomTypes[logement.roomType]
 		mapView.addAnnotation(logementAnnotation)
 		
 		// Adding every places to the map
@@ -81,7 +81,7 @@ class LogementViewController: UIViewController {
 			let annotation = MKPointAnnotation()
 			annotation.coordinate = coordinate
 			annotation.title = place.name
-			annotation.subtitle = "\(place.categorie)"
+			annotation.subtitle = AppDelegate.attractions.filter({ $0.id == place.categorie }).first!.name
 			mapView.addAnnotation(annotation)
 		}
 	}
