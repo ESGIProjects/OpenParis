@@ -8,6 +8,10 @@
 
 import UIKit
 
+import Alamofire
+import SwiftyJSON
+import PKHUD
+
 class SignUpViewController : UIViewController{
 	
 	@IBOutlet weak var mailView: UIView!
@@ -23,7 +27,7 @@ class SignUpViewController : UIViewController{
 	var fieldsFilled: Bool {
 		get {
 			return mailTextField.text != "" && confirmMailTextField.text != ""
-				&& passwordTextField.text != "" && confirmPasswordTextField.text == ""
+				&& passwordTextField.text != "" && confirmPasswordTextField.text != ""
 		}
 	}
 	
@@ -83,9 +87,36 @@ class SignUpViewController : UIViewController{
 		}
 		
 		// api call
-		performSegue(withIdentifier: "unwindToAddSpot", sender: nil)
-
+		HUD.show(.progress)
 		
+		let parameters = [
+			"mail": mailTextField.text!,
+			"password": passwordTextField.text!
+		]
+		
+		Alamofire.request("http://localhost:8080/signup", method: .post, parameters: parameters).validate().responseJSON { [unowned self] response in
+			switch response.result {
+			case .success(let value):
+				let json = JSON(value)
+				if json["message"].stringValue == "success" {
+					let userId = json["id"].intValue
+					let userMail = json["mail"].stringValue
+					
+					UserDefaults.standard.set(userId, forKey: "userId")
+					UserDefaults.standard.set(userMail, forKey: "userMail")
+					
+					HUD.flash(.success, delay: 1.0)
+					self.performSegue(withIdentifier: "unwindToAddSpot", sender: self)
+				}
+				else {
+					HUD.flash(.error, delay: 1.0)
+				}
+				
+			case .failure(let error):
+				print(error.localizedDescription)
+				HUD.flash(.error)
+			}
+		}
 	}
 	
 	// MARK: - Helpers

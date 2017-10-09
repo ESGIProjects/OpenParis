@@ -64,9 +64,7 @@ class AddSpotViewController : UITableViewController {
 	
 	@IBAction func unwindToAddSpot(_ segue: UIStoryboardSegue) {
 		// check if connected
-		print("Unwind to add spot")
 		if segue.source is SignInViewController || segue.source is SignUpViewController {
-			print("Unwind from Sign In or Sign Up")
 			if UserDefaults.standard.object(forKey: "userId") != nil {
 				navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "signOut"), style: .plain, target: self, action: #selector(signOut(_:)))
 			}
@@ -89,7 +87,8 @@ class AddSpotViewController : UITableViewController {
 		let alert = UIAlertController(title: "Sign Out of OpenParis ?", message: "Are you sure to sign out ?", preferredStyle: .alert)
 		alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
 		alert.addAction(UIAlertAction(title: "Sign Out", style: .destructive) { [unowned self] _ in
-			UserDefaults.standard.removeObject(forKey: "username")
+			UserDefaults.standard.removeObject(forKey: "userId")
+			UserDefaults.standard.removeObject(forKey: "userMail")
 			self.navigationItem.rightBarButtonItem = nil
 		})
 		
