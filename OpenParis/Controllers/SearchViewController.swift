@@ -23,7 +23,6 @@ class SearchViewController : UITableViewController {
     var duration = 1
     var selectedAttractions = [AttractionType]()
     var selectedNeighborhood: Neighborhood?
-	
 	var retrievedLogements: [Logement]?
 	
 	// MARK: - UIViewController

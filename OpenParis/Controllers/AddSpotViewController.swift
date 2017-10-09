@@ -8,19 +8,38 @@
 
 import UIKit
 
-class AddSpotViewController : UIViewController {
+class AddSpotViewController : UITableViewController {
+	
+	@IBOutlet weak var nameTextField: UITextField!
+	@IBOutlet weak var addressTextField: UITextField!
+	@IBOutlet weak var zipCodeTextField: UITextField!
+	
+	var selectedAttraction: AttractionType?
+	
+	// MARK: - UIViewController
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
-		performSegue(withIdentifier: "signIn", sender: nil)
+	
 	}
 	
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
 	}
 	
+	// MARK: - IBActions
+	
+	@IBAction func add(_ sender: UIButton) {
+		if let username = UserDefaults.standard.object(forKey: "username") as? String {
+			print(username)
+		} else {
+			performSegue(withIdentifier: "signIn", sender: nil)
+		}
+	}
+	
 	@IBAction func unwindToAddSpot(_ segue: UIStoryboardSegue) {
-		// normally connected, but check in case - if not, push sign-in controller back
+		// check if connected
+		// if connected, request
+		
 	}
 }

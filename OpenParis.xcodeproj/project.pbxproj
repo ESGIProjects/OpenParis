@@ -26,6 +26,7 @@
 		D7644C021F882381002AC8FA /* Logement.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7644C011F882381002AC8FA /* Logement.swift */; };
 		D7644C041F882581002AC8FA /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7644C031F882581002AC8FA /* Place.swift */; };
 		D7ECA0571F8A4C5100BB133C /* UIView+RoundCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7ECA0561F8A4C5100BB133C /* UIView+RoundCorners.swift */; };
+		D7EEBF741F8B4A5E009761C7 /* LogementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EEBF731F8B4A5E009761C7 /* LogementViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		D7644C031F882581002AC8FA /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Place.swift; path = Models/Place.swift; sourceTree = "<group>"; };
 		D7B627BC6DA7E360742C9D52 /* Pods-OpenParis.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenParis.release.xcconfig"; path = "Pods/Target Support Files/Pods-OpenParis/Pods-OpenParis.release.xcconfig"; sourceTree = "<group>"; };
 		D7ECA0561F8A4C5100BB133C /* UIView+RoundCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+RoundCorners.swift"; sourceTree = "<group>"; };
+		D7EEBF731F8B4A5E009761C7 /* LogementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LogementViewController.swift; path = Controllers/LogementViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 				AE17FEA41F6039DC003F9727 /* SearchViewController.swift */,
 				AE9D0C5C1F61890100A8D14B /* ResultsViewController.swift */,
 				D73344D61F629A5F00BF890E /* ChoiceViewController.swift */,
+				D7EEBF731F8B4A5E009761C7 /* LogementViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 				D7644C021F882381002AC8FA /* Logement.swift in Sources */,
 				AE17FE9F1F60392B003F9727 /* SignInViewController.swift in Sources */,
 				D7112A641F62B78E00CC4892 /* LogementCell.swift in Sources */,
+				D7EEBF741F8B4A5E009761C7 /* LogementViewController.swift in Sources */,
 				AE17FEA31F60396C003F9727 /* AddSpotViewController.swift in Sources */,
 				D75D83411F88B80D00836BCD /* AttractionType.swift in Sources */,
 				AE9D0C5D1F61890100A8D14B /* ResultsViewController.swift in Sources */,

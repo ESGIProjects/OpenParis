@@ -41,6 +41,15 @@ class ResultsViewController : UIViewController {
 			mapView.addAnnotation(annotation)
 		}
 	}
+	
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		if segue.identifier == "showLogement" {
+			if let destination = segue.destination as? LogementViewController,
+				let sender = sender as? Logement {
+				destination.logement = sender
+			}
+		}
+	}
 }
 
 // MARK: - UITableViewDataSource
@@ -76,6 +85,9 @@ extension ResultsViewController: UITableViewDataSource {
 extension ResultsViewController: UITableViewDelegate {
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: true)
+		
+		let logement = logements[indexPath.row]
+		performSegue(withIdentifier: "showLogement", sender: logement)
 	}
 }
 
